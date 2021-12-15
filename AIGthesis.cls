@@ -172,9 +172,9 @@
         \hspace{.71cm}
         \begin{footnotesize}
           \ifenglish%
-            Faculty Mathematics and Computer Science
+            Faculty of Mathematics and Computer Science
           \else
-            Fachbereich Mathematik und Informatik
+            Fakultät für Mathematik und Informatik
           \fi
         \end{footnotesize}
         &
