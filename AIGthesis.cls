@@ -376,10 +376,11 @@
                 bin ich einverstanden. & \empty & $\square$ & $\square$\\[.5cm]
               \fi
               \ifenglish%
-                I agree to have this thesis published on the webpage of the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
+                I agree to have this thesis published on the webpage of & \empty & \empty & \empty\\
+                the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
               \else
-                Der Ver\"offentlichung dieser Arbeit auf der Webseite des Lehrgebiets künstliche Intelligenz & \empty & \empty & \empty\\
-                stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
+                Der Ver\"offentlichung dieser Arbeit auf der Webseite des & \empty & \empty & \empty\\
+                Lehrgebiets Künstliche Intelligenz stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
               \fi
               \ifenglish%
                 The thesis text is available under a Creative Commons  & \empty & \empty & \empty\\
