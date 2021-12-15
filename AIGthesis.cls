@@ -172,9 +172,9 @@
         \hspace{.71cm}
         \begin{footnotesize}
           \ifenglish%
-            Faculty 3: Mathematics and Computer Science
+            Faculty Mathematics and Computer Science
           \else
-            Fachbereich 3: Mathematik und Informatik
+            Fachbereich Mathematik und Informatik
           \fi
         \end{footnotesize}
         &
@@ -376,9 +376,9 @@
                 bin ich einverstanden. & \empty & $\square$ & $\square$\\[.5cm]
               \fi
               \ifenglish%
-                I agree to have this thesis published on the Web.& \empty & $\square$ & $\square$\\[.5cm]
+                I agree to have this thesis published on the webpage of the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
               \else
-                Der Ver\"offentlichung dieser Arbeit im Internet& \empty & \empty & \empty\\
+                Der Ver\"offentlichung dieser Arbeit auf der Webseite des Lehrgebiets künstliche Intelligenz & \empty & \empty & \empty\\
                 stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
               \fi
               \ifenglish%
