@@ -31,8 +31,8 @@ The following commands are used to format the cover page. They are used before `
     \firstreviewer{Name of the first reviewer (incl. academic title)}
     \firstreviewerinfo{institute/research group}
 
-    \secondreviewer{Name of the second reviewer (incl. academic title)}
-    \secondreveiwerinfo{insititute/research group or external institution}
+    \advisor{Name of the advisor (incl. academic title)}
+    \advisorinfo{insititute/research group or external institution}
 
 The following commands declare the abstract texts.
 

@@ -133,8 +133,8 @@
 \newcommand{\firstreviewer}[1]{\def\firstreviewer{#1}}
 \newcommand{\firstreviewerinfo}[1]{\def\firstreviewerinfo{#1}}
 
-\newcommand{\secondreviewer}[1]{\def\secondreviewer{#1}}
-\newcommand{\secondreviewerinfo}[1]{\def\secondreviewerinfo{#1}}
+\newcommand{\advisor}[1]{\def\advisor{#1}}
+\newcommand{\advisorinfo}[1]{\def\advisorinfo{#1}}
 
 \newcommand{\englishabstract}[1]{\def\englishabstract{#1}}
 \newcommand{\germanabstract}[1]{\def\germanabstract{#1}}
@@ -293,8 +293,8 @@
         \fi
         & \firstreviewer\\
         \empty & \firstreviewerinfo\\[2.5mm]
-        \empty & \secondreviewer\\
-        \empty & \secondreviewerinfo\\[2cm]
+        \empty & \advisor\\
+        \empty & \advisorinfo\\[2cm]
       \else
         \ifenglish%
           First examiner:
@@ -308,8 +308,8 @@
         \else
           Betreuer: 
         \fi
-        & \secondreviewer\\
-        \empty & \secondreviewerinfo\\[2cm]
+        & \advisor\\
+        \empty & \advisorinfo\\[2cm]
       \fi
       
     \end{tabular}
