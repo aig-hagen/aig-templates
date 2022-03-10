@@ -297,29 +297,21 @@
         \empty & \secondreviewerinfo\\[2cm]
       \else
         \ifenglish%
-          First supervisor:
+          First examiner:
         \else
           Erstgutachter: 
         \fi
         & \firstreviewer\\
         \empty & \firstreviewerinfo\\[2.5mm]
         \ifenglish%
-          Second supervisor:
+          Advisor:
         \else
-          Zweitgutachter: 
+          Betreuer: 
         \fi
         & \secondreviewer\\
         \empty & \secondreviewerinfo\\[2cm]
       \fi
-      \ifdate%
-        Koblenz, \today &
-      \else
-        \ifenglish%
-          Hagen, \monthword{} \the\year &
-        \else
-          Hagen, im \monthword{} \the\year &
-        \fi
-      \fi
+      
     \end{tabular}
   \end{titlepage}
   \iftwoside%
