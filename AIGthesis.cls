@@ -31,6 +31,7 @@
 \newif\ifmaster
 
 \newif\ifnogermanabstract
+\newif\ifnoenglishabstract
 
 \newif\ifscrreprt
 
@@ -63,6 +64,7 @@
 \DeclareOption{master}{\mastertrue}
 
 \DeclareOption{nogermanabstract}{\nogermanabstracttrue}
+\DeclareOption{noenglishabstract}{\noenglishabstracttrue}
 
 \DeclareOption{scrreprt}{\scrreprttrue}
 
@@ -154,292 +156,332 @@
 
 % redefine \maketitle
 \renewcommand{\maketitle}{
-  \ifenglish%
+\ifenglish%
     \selectlanguage{english}
-  \else
+\else
     \selectlanguage{ngerman}
-  \fi
-  \begin{titlepage}
+\fi
+
+% ----- titlepage ------
+\begin{titlepage}
     \begin{center}
-      \renewcommand{\arraystretch}{.8}
-      \begin{tabular}{c p{2.25cm} c}
- 	  	  \includegraphics[height=1.3cm]{logos/uni-logo}
-        &
-        \empty
-        &
-        \includegraphics[height=1.0cm]{logos/AIG-logo}
-	      \\
-        \hspace{.71cm}
-        \begin{footnotesize}
-          \ifenglish%
-            Faculty of Mathematics and Computer Science
-          \else
-            Fakultät für Mathematik und Informatik
-          \fi
-        \end{footnotesize}
-        &
-        \empty
-        &
-        \begin{footnotesize}
-          Artificial Intelligence
-        \end{footnotesize}
-        \\
-        &
-        \empty
-        &
-        \begin{footnotesize}
-          Group
-        \end{footnotesize}
-      \end{tabular}\\
-    \renewcommand{\arraystretch}{1.0} %reset arraystretch to default
-    \vspace*{1.75cm}
-    \begin{huge}
-      \textbf{\thetitle}\\[1.75cm]
-      \ifbachelor%
-        \ifenglish%
-          Bachelor's Thesis
-        \else
-          Bachelorarbeit
-        \fi
-      \else
-        \ifmaster%
-          \ifenglish%
-            Master's Thesis
-          \else
-            Masterarbeit
-          \fi
-        \else
-          \ifseminar%
-            \ifenglish%
-              Seminar Paper
+        \renewcommand{\arraystretch}{.8}
+        \begin{tabular}{c p{2.25cm} c}
+            \includegraphics[height=1.3cm]{logos/uni-logo}
+            &
+            \empty
+            &
+            \includegraphics[height=1.0cm]{logos/AIG-logo}
+            \\
+            \hspace{.71cm}
+            \begin{footnotesize}
+                \ifenglish%
+                    Faculty of Mathematics and Computer Science
+                \else
+                    Fakultät für Mathematik und Informatik
+                \fi
+            \end{footnotesize}
+            &
+            \empty
+            &
+            \begin{footnotesize}
+                Artificial Intelligence
+            \end{footnotesize}
+            \\
+            &
+            \empty
+            &
+            \begin{footnotesize}
+                Group
+            \end{footnotesize}
+        \end{tabular}\\
+        \renewcommand{\arraystretch}{1.0} %reset arraystretch to default
+        \vspace*{1.75cm}
+        \begin{huge}
+            \textbf{\thetitle}\\[1.75cm]
+            \ifbachelor%
+                \ifenglish%
+                    Bachelor's Thesis
+                \else
+                    Bachelorarbeit
+                \fi
             \else
-              Seminararbeit
+                \ifmaster%
+                    \ifenglish%
+                        Master's Thesis
+                    \else
+                        Masterarbeit
+                    \fi
+                \else
+                    \ifseminar%
+                        \ifenglish%
+                            Seminar Paper
+                        \else
+                            Seminararbeit
+                        \fi
+                    \else
+                        \ifproposal%
+                            \ifenglish%
+                                Thesis Proposal
+                            \else
+                                Proposal
+                            \fi
+                        \else
+                            >>SET TYPE (seminar, bachelor...) IN DOCUMENTCLASS OPTIONS<<
+                        \fi
+                    \fi
+                \fi
             \fi
-          \else
+        \\[.2cm]
+        \end{huge}
+        \ifseminar%
+            %do nothing
+        \else
             \ifproposal%
-              \ifenglish%
-                Thesis Proposal
-              \else
-                Proposal
-              \fi
+                %do nothing
             \else
-              >>SET TYPE (seminar, bachelor...) IN DOCUMENTCLASS OPTIONS<<
+                \ifenglish%
+                    in partial fulfillment of the requirements for\\
+                    the degree of 
+                \else
+                    zur Erlangung des Grades
+                    \iffemalemale%
+                        einer/eines
+                    \else
+                        \iffemale%
+                            einer
+                        \else
+                            \ifmale%
+                                eines
+                            \else
+                                >>SET GENDER (fm, f, or m) IN DOCUMENTCLASS OPTIONS<<
+                            \fi
+                        \fi
+                    \fi
+                \fi
+                \ifbachelor%
+                    Bachelor of Science (B.Sc.)
+                \else
+                    \ifmaster%
+                        Master of Science (M.Sc.)
+                    \else
+                        >>SET GRADE (bachelor or master) IN DOCUMENTCLASS OPTIONS<<
+                    \fi
+                \fi
+                \\
+                \ifenglish%
+                    in 
+                \else
+                    im Studiengang 
+                \fi
+                \degreecourse\\[.75cm]
             \fi
-          \fi
         \fi
-      \fi
-      \\[.2cm]
-    \end{huge}
-    \ifseminar%
-      %do nothing
-    \else
-      \ifproposal%
-        %do nothing
-      \else
-        \ifenglish%
-          in partial fulfillment of the requirements for\\
-          the degree of 
-        \else
-          zur Erlangung des Grades
-          \iffemalemale%
-            einer/eines
-          \else
-            \iffemale%
-              einer
+        \begin{large}
+            \ifenglish%
+                submitted by\\
             \else
-              \ifmale%
-                eines
-              \else
-                >>SET GENDER (fm, f, or m) IN DOCUMENTCLASS OPTIONS<<
-              \fi
+                vorgelegt von\\
             \fi
-          \fi
-        \fi
-        \ifbachelor%
-          Bachelor of Science (B.Sc.)
-        \else
-          \ifmaster%
-            Master of Science (M.Sc.)
-          \else
-            >>SET GRADE (bachelor or master) IN DOCUMENTCLASS OPTIONS<<
-          \fi
-        \fi
-        \\
-        \ifenglish%
-          in 
-        \else
-          im Studiengang 
-        \fi
-        \degreecourse\\[.75cm]
-      \fi
-    \fi
-    \begin{large}
-      \ifenglish%
-        submitted by\\
-      \else
-        vorgelegt von\\
-      \fi
-    \end{large}
-    \begin{Large}
-      \theauthor\\[3.79cm]
-    \end{Large}
-   	\end{center}
+        \end{large}
+        \begin{Large}
+            \theauthor\\[3.79cm]
+        \end{Large}
+    \end{center}
     \begin{tabular}{ll}
-      \ifseminar%
-        \ifenglish%
-          Supervisors: 
+        \ifseminar%
+            \ifenglish%
+                Supervisors: 
+            \else
+                Betreuer: 
+            \fi
+            & \firstreviewer\\
+            \empty & \firstreviewerinfo\\[2.5mm]
+            \empty & \advisor\\
+            \empty & \advisorinfo\\[2cm]
         \else
-          Betreuer: 
+            \ifenglish%
+                First examiner:
+            \else
+                Erstgutachter: 
+            \fi
+            & \firstreviewer\\
+            \empty & \firstreviewerinfo\\[2.5mm]
+            \ifenglish%
+                Advisor:
+            \else
+                Betreuer: 
+            \fi
+            & \advisor\\
+            \empty & \advisorinfo\\[2cm]
         \fi
-        & \firstreviewer\\
-        \empty & \firstreviewerinfo\\[2.5mm]
-        \empty & \advisor\\
-        \empty & \advisorinfo\\[2cm]
-      \else
-        \ifenglish%
-          First examiner:
-        \else
-          Erstgutachter: 
-        \fi
-        & \firstreviewer\\
-        \empty & \firstreviewerinfo\\[2.5mm]
-        \ifenglish%
-          Advisor:
-        \else
-          Betreuer: 
-        \fi
-        & \advisor\\
-        \empty & \advisorinfo\\[2cm]
-      \fi
-      
     \end{tabular}
-  \end{titlepage}
-  \iftwoside%
+\end{titlepage}
+\iftwoside%
     \thispagestyle{empty}
     \null\cleardoublepage%
-  \fi
-  \ifseminar%
-  %don't print the assertion
-  \else
-    \ifproposal%
+\fi
+
+% ------ assertion for thesis ------
+\ifseminar%
     %don't print the assertion
+\else
+    \ifproposal%
+        %don't print the assertion
     \else
-      \newcounter{AuthorNumber}
-      \ifgroup%
-        \setcounter{AuthorNumber}{2}
-      \else
-        \setcounter{AuthorNumber}{1}
-      \fi
+        \newcounter{AuthorNumber}
+        \ifgroup%
+            \setcounter{AuthorNumber}{2}
+        \else
+            \setcounter{AuthorNumber}{1}
+        \fi
         \begin{flushleft}
-          \loop\ifnum\theAuthorNumber>0
+            \loop\ifnum\theAuthorNumber>0
             \begin{Large}
-              \ifenglish%
-                Statement
-              \else
-                Erkl{\"a}rung
-              \fi
-              \\[5mm]
+                \ifenglish%
+                    Statement
+                \else
+                    Erkl{\"a}rung
+                \fi
+                \\[5mm]
             \end{Large}
             \ifenglish%
-              I hereby certify that this thesis has been composed by me and is based on my own work, that I did not use any further resources than specified \textendash{} in particular no references unmentioned in the reference section \textendash{} and that I did not submit this thesis to another examination before. The paper submission is identical to the submitted electronic version.
+                I hereby certify that this thesis has been composed by me and is based on my own work, that I did not use any further resources than specified \textendash{} in particular no references unmentioned in the reference section \textendash{} and that I did not submit this thesis to another examination before. The paper submission is identical to the submitted electronic version.
             \else
-              Hiermit best{\"a}tige ich, dass die vorliegende Arbeit von mir selbstst{\"a}ndig verfasst wurde und ich keine anderen als die angegebenen Hilfsmittel \textendash{} insbesondere keine im Quellenverzeichnis nicht benannten Internet-Quellen \textendash{} benutzt habe und die Arbeit von mir vorher nicht in einem anderen Pr{\"u}fungsverfahren eingereicht wurde. Die eingereichte schriftliche Fassung entspricht der auf dem elektronischen Speichermedium (CD-Rom).
+                Hiermit best{\"a}tige ich, dass die vorliegende Arbeit von mir selbstst{\"a}ndig verfasst wurde und ich keine anderen als die angegebenen Hilfsmittel \textendash{} insbesondere keine im Quellenverzeichnis nicht benannten Internet-Quellen \textendash{} benutzt habe und die Arbeit von mir vorher nicht in einem anderen Pr{\"u}fungsverfahren eingereicht wurde. Die eingereichte schriftliche Fassung entspricht der auf dem elektronischen Speichermedium (CD-Rom).
             \fi
             \\[.75cm]
             \begin{center}
-            \begin{tabular}{l p{1cm} cc}
-              \empty & \empty & 
-              \ifenglish%
-                Yes
-              \else
-                Ja 
-              \fi
-              & 
-              \ifenglish%
-                No
-              \else
-                Nein
-              \fi
-              \\[.5cm]
-              \ifenglish%
-                I agree to have this thesis published in the library.& \empty & $\square$ & $\square$\\[.5cm]
-              \else
-                Mit der Einstellung dieser Arbeit in die Bibliothek& \empty & \empty & \empty\\
-                bin ich einverstanden. & \empty & $\square$ & $\square$\\[.5cm]
-              \fi
-              \ifenglish%
-                I agree to have this thesis published on the webpage of & \empty & \empty & \empty\\
-                the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
-              \else
-                Der Ver\"offentlichung dieser Arbeit auf der Webseite des & \empty & \empty & \empty\\
-                Lehrgebiets Künstliche Intelligenz stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
-              \fi
-              \ifenglish%
-                The thesis text is available under a Creative Commons  & \empty & \empty & \empty\\
-                License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
-              \else
-                Der Text dieser Arbeit ist unter einer Creative & \empty & \empty & \empty \\
-                Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
-              \fi
-              \ifenglish%
-                The source code is available under a GNU General Public & \empty & \empty & \empty\\
-                License (GPLv3). & \empty & $\square$ & $\square$\\[.5cm]
-              \else
-                Der Quellcode ist unter einer GNU General Public & \empty & \empty & \empty\\
-                License (GPLv3) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
-              \fi
-              \ifenglish%
-                The collected data is available under a Creative Commons & \empty & \empty & \empty\\
-                License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
-              \else
-                Die erhobenen Daten sind unter einer Creative & \empty & \empty & \empty\\
-                Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\
-              \fi
-            \end{tabular}\\[2cm]
+                \begin{tabular}{l p{1cm} cc}
+                    \empty & \empty & 
+                    \ifenglish%
+                        Yes
+                    \else
+                        Ja 
+                    \fi
+                    & 
+                    \ifenglish%
+                        No
+                    \else
+                        Nein
+                    \fi
+                    \\[.5cm]
+                    \ifenglish%
+                        I agree to have this thesis published in the library.& \empty & $\square$ & $\square$\\[.5cm]
+                    \else
+                        Mit der Einstellung dieser Arbeit in die Bibliothek& \empty & \empty & \empty\\
+                            bin ich einverstanden. & \empty & $\square$ & $\square$\\[.5cm]
+                    \fi
+                    \ifenglish%
+                        I agree to have this thesis published on the webpage of & \empty & \empty & \empty\\
+                        the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
+                    \else
+                        Der Ver\"offentlichung dieser Arbeit auf der Webseite des & \empty & \empty & \empty\\
+                        Lehrgebiets Künstliche Intelligenz stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
+                    \fi
+                    \ifenglish%
+                        The thesis text is available under a Creative Commons  & \empty & \empty & \empty\\
+                        License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
+                    \else
+                        Der Text dieser Arbeit ist unter einer Creative & \empty & \empty & \empty \\
+                        Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
+                    \fi
+                    \ifenglish%
+                        The source code is available under a GNU General Public & \empty & \empty & \empty\\
+                        License (GPLv3). & \empty & $\square$ & $\square$\\[.5cm]
+                    \else
+                        Der Quellcode ist unter einer GNU General Public & \empty & \empty & \empty\\
+                        License (GPLv3) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
+                    \fi
+                    \ifenglish%
+                        The collected data is available under a Creative Commons & \empty & \empty & \empty\\
+                        License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
+                    \else
+                        Die erhobenen Daten sind unter einer Creative & \empty & \empty & \empty\\
+                        Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\
+                    \fi
+                \end{tabular}\\[2cm]
             \end{center}
             \begin{small}
-              \dotfill\\
-              \ifenglish
-                (Place, Date)\hfill(Signature)
-              \else
-                (Ort, Datum)\hfill(Unterschrift)
-              \fi
+                \dotfill\\
+                \ifenglish
+                    (Place, Date)\hfill(Signature)
+                \else
+                    (Ort, Datum)\hfill(Unterschrift)
+                \fi
             \end{small}
             \addtocounter{AuthorNumber}{-1}
             \cleardoublepage%
-          \repeat%
+            \repeat%
         \end{flushleft}
-	
-	\vspace{2em}
+        \vspace{2em}
     \fi
-  \fi
-  \ifnogermanabstract
-    \empty
-  \else
-    \selectlanguage{ngerman}
-    \begin{center}
-    \begin{large}
-    \bfseries{Zusammenfassung}
-    \end{large}
-    \end{center}
-    \germanabstract
-    \par\bigskip
-    \par\bigskip
-  \fi
-  \selectlanguage{english}
-  \begin{center}
-  \begin{large}
-  \bfseries{Abstract}
-  \end{large}
-  \end{center}
-  \englishabstract
-  \ifenglish
-    \selectlanguage{english}
-  \else
-    \selectlanguage{ngerman}
-  \fi
-  \cleardoublepage%
+\fi
 
-
-
+% ---- Abstract ------
+\ifproposal
+    \ifenglish
+        \selectlanguage{english}
+        \begin{center}
+            \begin{large}
+                \bfseries{Abstract}
+            \end{large}
+        \end{center}
+        \begin{center}
+            \begin{minipage}[c]{0.85\textwidth}
+                \begin{small}
+                    \englishabstract
+                \end{small}
+            \end{minipage}
+        \end{center}
+    \else
+        \selectlanguage{ngerman}
+        \begin{center}
+            \begin{large}
+                \bfseries{Zusammenfassung}
+            \end{large}
+        \end{center}
+        \begin{center}
+            \begin{minipage}[c]{0.85\textwidth}
+                \begin{small}
+                    \germanabstract
+                \end{small}
+            \end{minipage}
+        \end{center}
+    \fi
+    %\par\smallskip
+\else
+    \ifnogermanabstract
+        \empty
+    \else
+        \selectlanguage{ngerman}
+        \begin{center}
+            \begin{large}
+                \bfseries{Zusammenfassung}
+            \end{large}
+        \end{center}
+        \germanabstract
+        \par\bigskip
+        \par\bigskip
+    \fi
+    \ifnoenglishabstract
+        \empty
+    \else
+        \selectlanguage{english}
+        \begin{center}
+            \begin{large}
+                \bfseries{Abstract}
+            \end{large}
+        \end{center}
+        \englishabstract
+    \fi
+    % --- reset language ---
+    \ifenglish
+        \selectlanguage{english}
+    \else
+        \selectlanguage{ngerman}
+    \fi
+    \cleardoublepage%
+\fi
 }
+
