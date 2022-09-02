@@ -1,0 +1,39 @@
+% Table of contents -> sections
+\AtBeginSection[]
+{	
+	\begin{frame}
+		\frametitle{Overview}
+        \tableofcontents[currentsection,currentsubsection,subsectionstyle=show/shaded/shaded,subsubsectionstyle=show/shaded/shaded]
+	\end{frame}
+}
+
+% Table of contents -> subsections
+\AtBeginSubsection[]
+{	
+	\begin{frame}
+		\frametitle{Overview}
+		\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/shaded/shaded,subsubsectionstyle=show/show/shaded]
+	\end{frame}
+}
+
+% Hide navigation symbols:
+\beamertemplatenavigationsymbolsempty 
+
+% Hide top part of headline:
+\setbeamertemplate{headline}{}
+
+% Footline:
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}

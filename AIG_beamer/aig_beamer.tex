@@ -1,0 +1,87 @@
+%%% Choose between 16:9 and 4:3 format by commenting out/uncommenting one of the following lines:
+\documentclass[aspectratio=169]{beamer} % 16:9
+% \documentclass{beamer} % 4:3
+
+%=========================================================================================================================
+
+\usepackage{beamerthemesplit}
+\usepackage{appendixnumberbeamer}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{tikz}
+\usepackage{url}
+\usepackage{tabularx}
+
+\useinnertheme{aig}
+\useoutertheme{aig}
+\usecolortheme{aig}
+\usefonttheme{aig}
+
+
+%=========================================================================================================================
+\title{AIG Beamer Template}
+
+\author[S. Author]{Some Author}
+\institute{Artificial Intelligence Group,\\
+University of Hagen, Germany}
+\date{September 1, 2022}
+%=========================================================================================================================
+\logo{\includegraphics[width=3cm]{figures/logoaig.png}}
+%=========================================================================================================================
+
+\begin{document}
+
+%=========================================================================================================================
+
+\begin{frame}
+  \titlepage
+\end{frame}
+\nologo
+
+\section{Section}
+
+\begin{frame}{Blocks}
+    \begin{block}{Block}
+        This is a regular block.
+        \begin{itemize}
+            \item This is an item in a block.
+        \end{itemize}
+    \end{block}
+    
+    \begin{alertblock}{Block}
+        This is an alert block.
+        \begin{itemize}
+            \item This is an item in an alert block.
+        \end{itemize}
+    \end{alertblock}
+    
+    \begin{exampleblock}{Block}
+        This is an example block.
+        \begin{itemize}
+            \item This is an item in an example block.
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+
+\subsection{Subsection}
+
+\begin{frame}{Highlighting Text}
+    We can \highlight{highlight} text. There are also a \darkhighlight{darker} option, and a \yellowhighlight{yellow} option.\\
+    The same options are also available in math mode: $\mathhighlight{a} + \darkmathhighlight{b} = \yellowmathhighlight{c}$
+\end{frame}
+
+
+\appendix
+
+\section{Appendix}
+
+\begin{frame}{Appendix}
+    This is an appendix.
+    \begin{itemize}
+        \item Page numbers start from the beginning.
+    \end{itemize}
+\end{frame}
+
+\end{document}
