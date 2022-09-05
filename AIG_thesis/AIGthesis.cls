@@ -485,3 +485,8 @@
 \fi
 }
 
+\newcommand{\addreferences}{
+    \cleardoublepage
+    \bibliographystyle{alpha}
+    \bibliography{references}
+}
