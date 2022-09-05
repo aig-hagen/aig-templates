@@ -166,35 +166,53 @@
 \begin{titlepage}
     \begin{center}
         \renewcommand{\arraystretch}{.8}
-        \begin{tabular}{c p{2.25cm} c}
-            \includegraphics[height=1.3cm]{logos/uni-logo}
-            &
-            \empty
-            &
-            \includegraphics[height=1.0cm]{logos/AIG-logo}
-            \\
-            \hspace{.71cm}
+        % \begin{tabular}{c p{2.25cm} c}
+        %     \includegraphics[height=1.3cm]{logos/uni-logo}
+        %     &
+        %     \empty
+        %     &
+        %     \includegraphics[height=1.0cm]{logos/AIG-logo}
+        %     \\
+        %     \hspace{.71cm}
+        %     \begin{footnotesize}
+        %         \ifenglish%
+        %             Faculty of Mathematics and Computer Science
+        %         \else
+        %             Fakultät für Mathematik und Informatik
+        %         \fi
+        %     \end{footnotesize}
+        %     &
+        %     \empty
+        %     &
+        %     \begin{footnotesize}
+        %         Artificial Intelligence
+        %     \end{footnotesize}
+        %     \\
+        %     &
+        %     \empty
+        %     &
+        %     \begin{footnotesize}
+        %         Group
+        %     \end{footnotesize}
+        % \end{tabular}\\
+        \begin{minipage}{.5\textwidth}
+            \includegraphics[height=1.0cm]{figures/Uni_hagen_logo.png}\\
             \begin{footnotesize}
                 \ifenglish%
-                    Faculty of Mathematics and Computer Science
-                \else
-                    Fakultät für Mathematik und Informatik
-                \fi
+                        Faculty of Mathematics and Computer Science
+                    \else
+                        Fakultät für Mathematik und Informatik
+                    \fi
             \end{footnotesize}
-            &
-            \empty
-            &
+        \end{minipage}%
+        \hfill%
+        \begin{minipage}{.5\textwidth}
+            \raggedleft
+            \includegraphics[height=1.0cm]{figures/logo_aig_transparent_bg.png} \\
             \begin{footnotesize}
-                Artificial Intelligence
+                Artificial Intelligence Group%   
             \end{footnotesize}
-            \\
-            &
-            \empty
-            &
-            \begin{footnotesize}
-                Group
-            \end{footnotesize}
-        \end{tabular}\\
+        \end{minipage}\\
         \renewcommand{\arraystretch}{1.0} %reset arraystretch to default
         \vspace*{1.75cm}
         \begin{huge}
