@@ -1,8 +1,8 @@
 %*******************************************************************************
 %  AIGthesis.cls
 %
-%  LaTeX document class for seminar papers, proposals, bachelor's theses, and
-%  master's theses written at the Artificial Intelligence Group.
+%  LaTeX document class for seminar papers and proposals 
+%  written at the Artificial Intelligence Group.
 %
 % Adopted from the WeSTThesis.cls template.
 %
@@ -27,11 +27,6 @@
 
 \newif\ifseminar
 \newif\ifproposal
-% \newif\ifbachelor
-% \newif\ifmaster
-
-% \newif\ifnogermanabstract
-% \newif\ifnoenglishabstract
 
 \newif\ifscrreprt
 
@@ -39,10 +34,6 @@
 
 \newif\iftimes
 \newif\ifpalatino
-
-% \newif\iftwoside
-
-% \newif\ifbinding
 
 \newif\ifframes
 
@@ -60,11 +51,6 @@
 
 \DeclareOption{seminar}{\seminartrue}
 \DeclareOption{proposal}{\proposaltrue}
-% \DeclareOption{bachelor}{\bachelortrue}
-% \DeclareOption{master}{\mastertrue}
-
-% \DeclareOption{nogermanabstract}{\nogermanabstracttrue}
-% \DeclareOption{noenglishabstract}{\noenglishabstracttrue}
 
 \DeclareOption{scrreprt}{\scrreprttrue}
 
@@ -74,15 +60,10 @@
 
 \DeclareOption{palatino}{\palatinotrue}
 
-% \DeclareOption{twoside}{\twosidetrue}
-
-% \DeclareOption{binding}{\bindingtrue}
-
 \DeclareOption{frames}{\framestrue}
 
 
 %--- Execution of options ------------------------------------------------------
-
 
 \ProcessOptions
 
@@ -90,14 +71,8 @@
 
 \ifscrreprt%
   \LoadClass[a4paper,11pt,titlepage]{scrreprt}
-%   \iftwoside%
-%     \PassOptionsToClass{cleardoublepage=empty,twoside}{scrreprt}
-%   \fi
 \else
   \LoadClass[a4paper,11pt,titlepage]{scrartcl}
-%   \iftwoside%
-%     \PassOptionsToClass{cleardoublepage=empty,twoside}{scrartcl}
-%   \fi
 \fi
 
 \RequirePackage{titling}
@@ -110,22 +85,12 @@
   \RequirePackage{palatino}			% font type Book Antiqua/Palatino
 \fi
 
-% \ifbinding%
-%   % twoside does not include a binding offset itself
-%   \ifframes%
-%     % showframe option for testing the layout
-%     \RequirePackage[bindingoffset=8mm,showframe]{geometry}
-%   \else
-%     \RequirePackage[bindingoffset=8mm]{geometry}
-%   \fi
-% \else
-  \ifframes%
+\ifframes%
     % showframe option for testing the layout
     \RequirePackage[showframe]{geometry}
   \else
     \RequirePackage[]{geometry}
-  \fi
-% \fi
+\fi
 
 
 %--- Code ----------------------------------------------------------------------
@@ -138,8 +103,6 @@
 \newcommand{\advisor}[1]{\def\advisor{#1}}
 \newcommand{\advisorinfo}[1]{\def\advisorinfo{#1}}
 
-% \newcommand{\englishabstract}[1]{\def\englishabstract{#1}}
-% \newcommand{\germanabstract}[1]{\def\germanabstract{#1}}
 \renewcommand{\abstract}[1]{\def\abstract{#1}}
 
 \newcommand{\monthword}{%
@@ -157,128 +120,57 @@
 
 % redefine \maketitle
 \renewcommand{\maketitle}{
-\ifenglish%
-    \selectlanguage{english}
-\else
-    \selectlanguage{ngerman}
-\fi
+    \ifenglish%
+        \selectlanguage{english}
+    \else
+        \selectlanguage{ngerman}
+    \fi
 
-% ----- titlepage ------
-% \begin{titlepage}
+    % ----- titlepage ------
     \begin{center}
         \renewcommand{\arraystretch}{0.8}
-        \begin{tabular}{c p{2.25cm} c}
-            \includegraphics[height=1.3cm]{logos/uni-logo}
-            &
-            \empty
-            &
-            \includegraphics[height=1.0cm]{logos/AIG-logo}
-            \\
-            \hspace{.71cm}
+        \begin{minipage}{.5\textwidth}
+            \includegraphics[height=1.0cm]{AIG_papers/logos/Uni_hagen_logo.png}\\
             \begin{footnotesize}
                 \ifenglish%
-                    Faculty of Mathematics and Computer Science
-                \else
-                    Fakultät für Mathematik und Informatik
-                \fi
+                        Faculty of Mathematics and Computer Science
+                    \else
+                        Fakultät für Mathematik und Informatik
+                    \fi
             \end{footnotesize}
-            &
-            \empty
-            &
+        \end{minipage}%
+        \hfill%
+        \begin{minipage}{.5\textwidth}
+            \raggedleft
+            \includegraphics[height=1.0cm]{AIG_papers/logos/logo_aig_transparent_bg.png} \\
             \begin{footnotesize}
-                Artificial Intelligence
+                Artificial Intelligence Group%   
             \end{footnotesize}
-            \\
-            &
-            \empty
-            &
-            \begin{footnotesize}
-                Group
-            \end{footnotesize}
-        \end{tabular}\\
+        \end{minipage}\\
         \renewcommand{\arraystretch}{1.0} %reset arraystretch to default
         \vspace*{0.7cm}
         \begin{LARGE}
-            \textbf{\thetitle}\\[0.7cm]
-            % \ifbachelor%
-            %     \ifenglish%
-            %         Bachelor's Thesis
-            %     \else
-            %         Bachelorarbeit
-            %     \fi
-            % \else
-            %     \ifmaster%
-            %         \ifenglish%
-            %             Master's Thesis
-            %         \else
-            %             Masterarbeit
-            %         \fi
-            %     \else
-                    \ifseminar%
+            \textbf{\thetitle}\\[0.6cm]
+                \ifseminar%
+                    \ifenglish%
+                        Seminar Paper
+                    \else
+                        Seminararbeit
+                    \fi
+                \else
+                    \ifproposal%
                         \ifenglish%
-                            Seminar Paper
+                            Thesis Proposal
                         \else
-                            Seminararbeit
+                            % Proposal
+                            Exposé
                         \fi
                     \else
-                        \ifproposal%
-                            \ifenglish%
-                                Thesis Proposal
-                            \else
-                                % Proposal
-                                Exposé
-                            \fi
-                        \else
-                            >>SET TYPE (seminar, bachelor...) IN DOCUMENTCLASS OPTIONS<<
-                        \fi
+                        >>SET TYPE (seminar, bachelor...) IN DOCUMENTCLASS OPTIONS<<
                     \fi
-                % \fi
-            % \fi
-        \\[.1cm]
+                \fi
+            \\[.1cm]
         \end{LARGE}
-        % \ifseminar%
-        %     %do nothing
-        % \else
-        %     \ifproposal%
-        %         %do nothing
-        %     \else
-        %         \ifenglish%
-        %             in partial fulfillment of the requirements for\\
-        %             the degree of 
-        %         \else
-        %             zur Erlangung des Grades
-        %             \iffemalemale%
-        %                 einer/eines
-        %             \else
-        %                 \iffemale%
-        %                     einer
-        %                 \else
-        %                     \ifmale%
-        %                         eines
-        %                     \else
-        %                         >>SET GENDER (fm, f, or m) IN DOCUMENTCLASS OPTIONS<<
-        %                     \fi
-        %                 \fi
-        %             \fi
-        %         \fi
-        %         \ifbachelor%
-        %             Bachelor of Science (B.Sc.)
-        %         \else
-        %             \ifmaster%
-        %                 Master of Science (M.Sc.)
-        %             \else
-        %                 >>SET GRADE (bachelor or master) IN DOCUMENTCLASS OPTIONS<<
-        %             \fi
-        %         \fi
-        %         \\
-        %         \ifenglish%
-        %             in 
-        %         \else
-        %             im Studiengang 
-        %         \fi
-        %         \degreecourse\\[.75cm]
-        %     \fi
-        % \fi
         \begin{large}
             \ifenglish%
                 submitted by\\
@@ -287,141 +179,11 @@
             \fi
         \end{large}
         \begin{Large}
-            \theauthor\\[0.7cm]
+            \theauthor\\[0.6cm]
         \end{Large}
     \end{center}
-    % \begin{tabular}{ll}
-    %     \ifseminar%
-    %         \ifenglish%
-    %             Supervisors: 
-    %         \else
-    %             Betreuer: 
-    %         \fi
-    %         & \firstreviewer\\
-    %         \empty & \firstreviewerinfo\\[2.5mm]
-    %         \empty & \advisor\\
-    %         \empty & \advisorinfo\\[2cm]
-    %     \else
-    %         \ifenglish%
-    %             First examiner:
-    %         \else
-    %             Erstgutachter: 
-    %         \fi
-    %         & \firstreviewer\\
-    %         \empty & \firstreviewerinfo\\[2.5mm]
-    %         \ifenglish%
-    %             Advisor:
-    %         \else
-    %             Betreuer: 
-    %         \fi
-    %         & \advisor\\
-    %         \empty & \advisorinfo\\[2cm]
-    %     \fi
-    % \end{tabular}
-% \end{titlepage}
-% \iftwoside%
-%     \thispagestyle{empty}
-%     \null\cleardoublepage%
-% \fi
 
-% ------ assertion for thesis ------
-% \ifseminar%
-%     %don't print the assertion
-% \else
-%     \ifproposal%
-%         %don't print the assertion
-%     \else
-%         \newcounter{AuthorNumber}
-%         \ifgroup%
-%             \setcounter{AuthorNumber}{2}
-%         \else
-%             \setcounter{AuthorNumber}{1}
-%         \fi
-%         \begin{flushleft}
-%             \loop\ifnum\theAuthorNumber>0
-%             \begin{Large}
-%                 \ifenglish%
-%                     Statement
-%                 \else
-%                     Erkl{\"a}rung
-%                 \fi
-%                 \\[5mm]
-%             \end{Large}
-%             \ifenglish%
-%                 I hereby certify that this thesis has been composed by me and is based on my own work, that I did not use any further resources than specified \textendash{} in particular no references unmentioned in the reference section \textendash{} and that I did not submit this thesis to another examination before. The paper submission is identical to the submitted electronic version.
-%             \else
-%                 Hiermit best{\"a}tige ich, dass die vorliegende Arbeit von mir selbstst{\"a}ndig verfasst wurde und ich keine anderen als die angegebenen Hilfsmittel \textendash{} insbesondere keine im Quellenverzeichnis nicht benannten Internet-Quellen \textendash{} benutzt habe und die Arbeit von mir vorher nicht in einem anderen Pr{\"u}fungsverfahren eingereicht wurde. Die eingereichte schriftliche Fassung entspricht der auf dem elektronischen Speichermedium (CD-Rom).
-%             \fi
-%             \\[.75cm]
-%             \begin{center}
-%                 \begin{tabular}{l p{1cm} cc}
-%                     \empty & \empty & 
-%                     \ifenglish%
-%                         Yes
-%                     \else
-%                         Ja 
-%                     \fi
-%                     & 
-%                     \ifenglish%
-%                         No
-%                     \else
-%                         Nein
-%                     \fi
-%                     \\[.5cm]
-%                     \ifenglish%
-%                         I agree to have this thesis published in the library.& \empty & $\square$ & $\square$\\[.5cm]
-%                     \else
-%                         Mit der Einstellung dieser Arbeit in die Bibliothek& \empty & \empty & \empty\\
-%                             bin ich einverstanden. & \empty & $\square$ & $\square$\\[.5cm]
-%                     \fi
-%                     \ifenglish%
-%                         I agree to have this thesis published on the webpage of & \empty & \empty & \empty\\
-%                         the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
-%                     \else
-%                         Der Ver\"offentlichung dieser Arbeit auf der Webseite des & \empty & \empty & \empty\\
-%                         Lehrgebiets Künstliche Intelligenz stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
-%                     \fi
-%                     \ifenglish%
-%                         The thesis text is available under a Creative Commons  & \empty & \empty & \empty\\
-%                         License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
-%                     \else
-%                         Der Text dieser Arbeit ist unter einer Creative & \empty & \empty & \empty \\
-%                         Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
-%                     \fi
-%                     \ifenglish%
-%                         The source code is available under a GNU General Public & \empty & \empty & \empty\\
-%                         License (GPLv3). & \empty & $\square$ & $\square$\\[.5cm]
-%                     \else
-%                         Der Quellcode ist unter einer GNU General Public & \empty & \empty & \empty\\
-%                         License (GPLv3) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
-%                     \fi
-%                     \ifenglish%
-%                         The collected data is available under a Creative Commons & \empty & \empty & \empty\\
-%                         License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
-%                     \else
-%                         Die erhobenen Daten sind unter einer Creative & \empty & \empty & \empty\\
-%                         Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\
-%                     \fi
-%                 \end{tabular}\\[2cm]
-%             \end{center}
-%             \begin{small}
-%                 \dotfill\\
-%                 \ifenglish
-%                     (Place, Date)\hfill(Signature)
-%                 \else
-%                     (Ort, Datum)\hfill(Unterschrift)
-%                 \fi
-%             \end{small}
-%             \addtocounter{AuthorNumber}{-1}
-%             \cleardoublepage%
-%             \repeat%
-%         \end{flushleft}
-%         \vspace{2em}
-%     \fi
-% \fi
-
-% ---- Abstract ------
-% \ifproposal
+    % ---- Abstract ------
     \ifenglish
         \selectlanguage{english}
         \begin{center}
@@ -432,7 +194,6 @@
         \begin{center}
             \begin{minipage}[c]{0.85\textwidth}
                 \begin{small}
-                    % \englishabstract
                     \abstract
                 \end{small}
             \end{minipage}
@@ -447,45 +208,55 @@
         \begin{center}
             \begin{minipage}[c]{0.85\textwidth}
                 \begin{small}
-                    % \germanabstract
                     \abstract 
                 \end{small}
             \end{minipage}
         \end{center}
     \fi
-    %\par\smallskip
-% \else
-%     \ifnogermanabstract
-%         \empty
-%     \else
-%         \selectlanguage{ngerman}
-%         \begin{center}
-%             \begin{large}
-%                 \bfseries{Zusammenfassung}
-%             \end{large}
-%         \end{center}
-%         \germanabstract
-%         \par\bigskip
-%         \par\bigskip
-%     \fi
-%     \ifnoenglishabstract
-%         \empty
-%     \else
-%         \selectlanguage{english}
-%         \begin{center}
-%             \begin{large}
-%                 \bfseries{Abstract}
-%             \end{large}
-%         \end{center}
-%         \englishabstract
-%     \fi
+        
     % --- reset language ---
     \ifenglish
         \selectlanguage{english}
     \else
         \selectlanguage{ngerman}
     \fi
-    % \cleardoublepage%
-\fi
 }
 
+
+\newcommand{\makestatement}{
+    \ifenglish
+        \selectlanguage{english}
+        \section*{Statement}
+        I declare that I have written the seminar paper independently and without unauthorized use 
+        of third parties. 
+        I have only used the indicated resources and I have clearly marked the passages taken verbatim or in 
+        the sense of these resources as such. 
+        The assurance of independent work also applies to any drawings, sketches or graphical representations. 
+        The work has not previously been submitted in the same or similar form to the same or another examination authority and has not been published. 
+        By submitting the electronic version of the final version of the paper, I acknowledge that it will be checked by a plagiarism detection service to check for plagiarism and that it will be stored exclusively for examination purposes.
+                
+        \vspace{2.5cm}
+        \noindent
+        \dotfill\\
+        (Place, Date)\hfill(Signature)
+    \else
+        \selectlanguage{ngerman}
+        \section*{Erklärung}
+        Ich erkläre, dass ich die schriftliche Ausarbeitung zum Seminar selbstständig
+        und ohne unzulässige Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur
+        die angegebenen Quellen und Hilfsmittel verwendet und die aus diesen wörtlich 
+        oder sinngemäß entnommenen Stellen als solche kenntlich gemacht. Die Versicherung 
+        selbstständiger Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder 
+        graphische Darstellungen. Die Ausarbeitung wurde bisher in gleicher oder ähnlicher 
+        Form weder derselben noch einer anderen Prüfungsbehörde vorgelegt und auch nicht 
+        veröffentlicht. Mit der Abgabe der elektronischen Fassung der endgültigen Version 
+        der Ausarbeitung nehme ich zur Kenntnis, dass diese mit Hilfe eines 
+        Plagiatserkennungsdienstes auf enthaltene Plagiate geprüft werden kann und 
+        ausschließlich für Prüfungszwecke gespeichert wird.
+        
+        \vspace{2.5cm}
+        \noindent
+        \dotfill\\
+        (Ort, Datum)\hfill(Unterschrift)
+    \fi
+}
