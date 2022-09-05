@@ -1,5 +1,5 @@
-# LaTeX document class for seminar papers, proposals, bachelor's theses, and master's theses written at the Artificial Intelligence Group.
-The document class "AIGthesis.cls" is based on "WeSTthesis.cls". The document class provides a cover page template, a statement on source usage and publication, and some basic text formatting. The file [example.tex](example.tex) contains a template for creating documents using this document class.
+# LaTeX document class for bachelor's and master's theses written at the Artificial Intelligence Group.
+The document class "AIGthesis.cls" is based on "WeSTthesis.cls". The document class provides a cover page template, a statement on source usage and publication, and some basic text formatting. 
 
 ## Usage
 The following command is used to include the document class in the .tex document.
