@@ -148,9 +148,9 @@
             \end{footnotesize}
         \end{minipage}\\
         \renewcommand{\arraystretch}{1.0} %reset arraystretch to default
-        \vspace*{0.7cm}
+        \vspace*{0.9cm}
         \begin{LARGE}
-            \textbf{\thetitle}\\[0.6cm]
+            \textbf{\thetitle}\\[0.5cm]
                 \ifseminar%
                     \ifenglish%
                         Seminar Paper
@@ -179,7 +179,7 @@
             \fi
         \end{large}
         \begin{Large}
-            \theauthor\\[0.6cm]
+            \theauthor\\[0.5cm]
         \end{Large}
     \end{center}
 
@@ -224,6 +224,8 @@
 
 
 \newcommand{\makestatement}{
+    \clearpage
+    \pagestyle{empty}
     \ifenglish
         \selectlanguage{english}
         \section*{Statement}
