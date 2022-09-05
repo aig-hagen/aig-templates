@@ -130,7 +130,7 @@
     \begin{center}
         \renewcommand{\arraystretch}{0.8}
         \begin{minipage}{.5\textwidth}
-            \includegraphics[height=1.0cm]{AIG_paper/figures/Uni_hagen_logo.png}\\
+            \includegraphics[height=1.0cm]{figures/Uni_hagen_logo.png}\\
             \begin{footnotesize}
                 \ifenglish%
                         Faculty of Mathematics and Computer Science
@@ -142,7 +142,7 @@
         \hfill%
         \begin{minipage}{.5\textwidth}
             \raggedleft
-            \includegraphics[height=1.0cm]{AIG_paper/figures/logo_aig_transparent_bg.png} \\
+            \includegraphics[height=1.0cm]{figures/logo_aig_transparent_bg.png} \\
             \begin{footnotesize}
                 Artificial Intelligence Group%   
             \end{footnotesize}
