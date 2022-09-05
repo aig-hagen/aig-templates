@@ -44,4 +44,4 @@ The following commands are used after the `\begin{document}` statement.
     \maketitle  % prints the cover page and a statement about used sources and publication
 
 ## Example
-For an example see [main.tex](main.tex).
+For an example see [AIG_bachelorthesis.tex](AIG_bachelorthesis.tex) or [AIG_masterthesis.tex](AIG_masterthesis.tex).
