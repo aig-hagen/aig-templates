@@ -166,35 +166,6 @@
 \begin{titlepage}
     \begin{center}
         \renewcommand{\arraystretch}{.8}
-        % \begin{tabular}{c p{2.25cm} c}
-        %     \includegraphics[height=1.3cm]{logos/uni-logo}
-        %     &
-        %     \empty
-        %     &
-        %     \includegraphics[height=1.0cm]{logos/AIG-logo}
-        %     \\
-        %     \hspace{.71cm}
-        %     \begin{footnotesize}
-        %         \ifenglish%
-        %             Faculty of Mathematics and Computer Science
-        %         \else
-        %             Fakultät für Mathematik und Informatik
-        %         \fi
-        %     \end{footnotesize}
-        %     &
-        %     \empty
-        %     &
-        %     \begin{footnotesize}
-        %         Artificial Intelligence
-        %     \end{footnotesize}
-        %     \\
-        %     &
-        %     \empty
-        %     &
-        %     \begin{footnotesize}
-        %         Group
-        %     \end{footnotesize}
-        % \end{tabular}\\
         \begin{minipage}{.5\textwidth}
             \includegraphics[height=1.0cm]{figures/Uni_hagen_logo.png}\\
             \begin{footnotesize}
@@ -353,20 +324,44 @@
         \else
             \setcounter{AuthorNumber}{1}
         \fi
-        \begin{flushleft}
             \loop\ifnum\theAuthorNumber>0
             \begin{Large}
                 \ifenglish%
+                    \noindent 
                     Statement
                 \else
+                    \noindent 
                     Erkl{\"a}rung
                 \fi
                 \\[5mm]
             \end{Large}
-            \ifenglish%
-                I hereby certify that this thesis has been composed by me and is based on my own work, that I did not use any further resources than specified \textendash{} in particular no references unmentioned in the reference section \textendash{} and that I did not submit this thesis to another examination before. The paper submission is identical to the submitted electronic version.
-            \else
-                Hiermit best{\"a}tige ich, dass die vorliegende Arbeit von mir selbstst{\"a}ndig verfasst wurde und ich keine anderen als die angegebenen Hilfsmittel \textendash{} insbesondere keine im Quellenverzeichnis nicht benannten Internet-Quellen \textendash{} benutzt habe und die Arbeit von mir vorher nicht in einem anderen Pr{\"u}fungsverfahren eingereicht wurde. Die eingereichte schriftliche Fassung entspricht der auf dem elektronischen Speichermedium (CD-Rom).
+            \ifbachelor%
+                \selectlanguage{ngerman}%
+                Ich erkläre, dass ich die Bachelorarbeit selbstständig und ohne unzulässige 
+                Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur die angegebenen 
+                Quellen und Hilfsmittel verwendet und die aus diesen wörtlich oder sinngemäß 
+                entnommenen Stellen als solche kenntlich gemacht. Die Versicherung 
+                selbstständiger Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder 
+                graphische Darstellungen. Die Bachelorarbeit wurde bisher in gleicher oder 
+                ähnlicher Form weder derselben noch einer anderen Prüfungsbehörde vorgelegt 
+                und auch nicht veröffentlicht. Mit der Abgabe der elektronischen Fassung der 
+                endgültigen Version der Bachelorarbeit nehme ich zur Kenntnis, dass diese mit
+                Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate geprüft werden
+                kann und ausschließlich für Prüfungszwecke gespeichert wird.
+            \fi
+            \ifmaster%
+                \selectlanguage{ngerman}%
+                \sloppy%
+                Ich erkläre, dass ich die Masterarbeit selbstständig und ohne unzulässige 
+                Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur die angegebenen 
+                Quellen und Hilfsmittel verwendet und die aus diesen wörtlich oder sinngemäß
+                entnommenen Stellen als solche kenntlich gemacht. Die Versicherung selbstständiger
+                Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder graphische Darstellungen.
+                Die Arbeit wurde bisher in gleicher oder ähnlicher Form weder derselben noch einer 
+                anderen Prüfungsbehörde vorgelegt und auch nicht veröffentlicht. Mit der Abgabe der 
+                elektronischen Fassung der endgültigen Version der Arbeit nehme ich zur Kenntnis, 
+                dass diese mit Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate geprüft
+                werden kann und ausschließlich für Prüfungszwecke gespeichert wird.
             \fi
             \\[.75cm]
             \begin{center}
@@ -431,7 +426,6 @@
             \addtocounter{AuthorNumber}{-1}
             \cleardoublepage%
             \repeat%
-        \end{flushleft}
         \vspace{2em}
     \fi
 \fi
