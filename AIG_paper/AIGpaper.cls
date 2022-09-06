@@ -226,24 +226,12 @@
 \newcommand{\makestatement}{
     \clearpage
     \pagestyle{empty}
-    \ifenglish
-        \selectlanguage{english}
-        \section*{Statement}
-        I declare that I have written the seminar paper independently and without unauthorized use 
-        of third parties. 
-        I have only used the indicated resources and I have clearly marked the passages taken verbatim or in 
-        the sense of these resources as such. 
-        The assurance of independent work also applies to any drawings, sketches or graphical representations. 
-        The work has not previously been submitted in the same or similar form to the same or another examination authority and has not been published. 
-        By submitting the electronic version of the final version of the paper, I acknowledge that it will be checked by a plagiarism detection service to check for plagiarism and that it will be stored exclusively for examination purposes.
-                
-        \vspace{2.5cm}
-        \noindent
-        \dotfill\\
-        (Place, Date)\hfill(Signature)
-    \else
         \selectlanguage{ngerman}
-        \section*{Erklärung}
+        \ifenglish
+            \section*{Statement}
+        \else
+            \section*{Erklärung}
+        \fi
         Ich erkläre, dass ich die schriftliche Ausarbeitung zum Seminar selbstständig
         und ohne unzulässige Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur
         die angegebenen Quellen und Hilfsmittel verwendet und die aus diesen wörtlich 
@@ -259,6 +247,11 @@
         \vspace{2.5cm}
         \noindent
         \dotfill\\
-        (Ort, Datum)\hfill(Unterschrift)
-    \fi
+        \begin{small}
+            \ifenglish
+                (Place, Date)\hfill(Signature)
+            \else
+                (Ort, Datum)\hfill(Unterschrift)
+            \fi
+        \end{small}
 }
