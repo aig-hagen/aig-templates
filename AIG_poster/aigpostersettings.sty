@@ -1,0 +1,178 @@
+\ProvidesPackage{aigpostersettings}
+\usepackage{xcolor}
+
+%Colors
+
+
+\definecolorstyle{aigpostercolor} 
+{\definecolor{aigyellow}{RGB}{210,149,81}
+	\definecolor{aigblue}{RGB}{0,76,151}
+	\definecolor{examplegreen}{RGB}{30,161,6}}
+	{
+	% Background Colors
+	\colorlet{backgroundcolor}{white}%{aigblue!30!white}
+	\colorlet{framecolor}{white}
+	% Title Colors
+	\colorlet{titlefgcolor}{white}
+	\colorlet{titlebgcolor}{aigblue}
+	% Block Colors
+	\colorlet{blocktitlebgcolor}{aigblue}
+	\colorlet{blocktitlefgcolor}{white}
+	\colorlet{blockbodybgcolor}{aigblue!20!white}
+	\colorlet{blockbodyfgcolor}{black}
+	% Innerblock Colors
+	\colorlet{innerblocktitlebgcolor}{white}
+	\colorlet{innerblocktitlefgcolor}{aigblue}
+	\colorlet{innerblockbodybgcolor}{white}
+	\colorlet{innerblockbodyfgcolor}{black}
+}
+
+%Background
+
+\definebackgroundstyle{aigposterback}{
+\draw[draw=white, line width=0pt, bottom color = backgroundcolor, top color=backgroundcolor](bottomleft) rectangle (topright);
+\draw[draw=aigblue, line width=0pt, bottom color=titlebgcolor, top color=titlebgcolor] (bottomleft) rectangle ($(bottomleft)+(\textwidth,4)$);
+\draw[draw=none, line width=0pt, bottom color=white, top color=white] (bottomleft) rectangle ($(bottomleft)+(\textwidth,1)$);
+}
+
+
+%Title with one Logo
+
+\definetitlestyle{aigpostertitle1}{width=\paperwidth, roundedcorners=0, linewidth=5pt, innersep=5pt,
+	titletotopverticalspace=10mm, titletoblockverticalspace=30mm
+}{
+\begin{scope}[line width=0pt, rounded corners=\titleroundedcorners]
+	\draw[color=blocktitlebgcolor, fill=titlebgcolor]
+	(\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop);
+\end{scope}
+}
+
+\makeatletter
+\renewcommand\TP@maketitle{%
+	\begin{minipage}{0.7\linewidth}
+		\centering
+		\color{titlefgcolor}
+		\vspace*{0.7em}
+		{\huge \@author \par}
+		\vspace*{0.8em}
+		{\bfseries \Huge \sc \@title \par}
+		\vspace*{1.5em}
+		{\LARGE \@institute}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{0.3\linewidth}
+		\centering
+		\includegraphics[scale=0.9]{figures/logoaig.png}
+	\end{minipage}
+}
+
+%Title with two Logos
+\iffalse
+\definetitlestyle{aigpostertitle2}{width=\paperwidth, roundedcorners=0, linewidth=5pt, innersep=5pt,
+	titletotopverticalspace=10mm, titletoblockverticalspace=30mm
+}{
+\begin{scope}[line width=0pt, rounded corners=\titleroundedcorners]
+	\draw[color=blocktitlebgcolor, fill=titlebgcolor]
+	(\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop);
+\end{scope}
+}
+
+\makeatletter
+\renewcommand\TP@maketitle{%
+    \begin{minipage}{0.2\linewidth}
+		\centering
+		\includegraphics[width=0.19\paperwidth]{figures/logoaig.png}
+	\end{minipage}
+	\begin{minipage}{0.6\linewidth}
+		\centering
+		\color{titlefgcolor}
+		\vspace*{0.7em}
+		{\huge \@author \par}
+		\vspace*{0.8em}
+		{\bfseries \Huge \sc \@title \par}
+		\vspace*{1.5em}
+		{\LARGE \@institute}
+	\end{minipage}%	
+	\begin{minipage}{0.2\linewidth}
+			\centering
+			\includegraphics[width=0.19\paperwidth]{figures/logoaig.png}
+		\end{minipage}
+}
+\fi
+
+%Title with three Logos (not done)
+\iffalse
+\definetitlestyle{aigpostertitle3}{width=\paperwidth, roundedcorners=0, linewidth=5pt, innersep=5pt,
+	titletotopverticalspace=10mm, titletoblockverticalspace=30mm
+}{
+\begin{scope}[line width=0pt, rounded corners=\titleroundedcorners]
+	\draw[color=blocktitlebgcolor, fill=titlebgcolor]
+	(\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop);
+\end{scope}
+}
+
+\makeatletter
+\renewcommand\TP@maketitle{%
+	\begin{minipage}{0.7\linewidth}
+		\centering
+		\color{titlefgcolor}
+		\vspace*{0.7em}
+		{\huge \@author \par}
+		\vspace*{0.8em}
+		{\bfseries \Huge \sc \@title \par}
+		\vspace*{1.5em}
+		{\LARGE \@institute}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}{0.3\linewidth}
+		\centering
+		\includegraphics[width=0.15\paperwidth]{figures/logoaig.png} \includegraphics[width=0.15\paperwidth]{figures/logoaig.png}
+		\includegraphics[width=0.15\paperwidth]{figures/logoaig.png}
+	\end{minipage}
+}
+\fi
+%Blocks, 1 Blue and 1 Yellow Version for better variation and readability
+
+\defineblockstyle{aigposterblockB}{
+titlewidthscale=1, bodywidthscale=1,titleleft,
+titleoffsetx=0pt, titleoffsety=0pt, bodyoffsetx=0mm, bodyoffsety=15mm,
+bodyverticalshift=10mm, roundedcorners=0, linewidth=2pt,
+titleinnersep=6mm, bodyinnersep=1cm
+}{
+\draw[color=aigblue, fill=blockbodybgcolor,
+rounded corners=\blockroundedcorners] (blockbody.south west)
+rectangle (blockbody.north east);
+\ifBlockHasTitle
+\draw[color=aigblue, fill=blocktitlebgcolor,
+rounded corners=\blockroundedcorners] (blocktitle.south west)
+rectangle (blocktitle.north east);
+\fi
+}
+
+
+\defineblockstyle{aigposterblockY}{
+titlewidthscale=1, bodywidthscale=1,titleleft, 
+titleoffsetx=0pt, titleoffsety=0pt, bodyoffsetx=0mm, bodyoffsety=15mm,
+bodyverticalshift=10mm, roundedcorners=0, linewidth=2pt,
+titleinnersep=6mm, bodyinnersep=1cm
+}{
+\draw[color=aigyellow, fill=aigyellow!30!white,
+rounded corners=\blockroundedcorners] (blockbody.south west)
+rectangle (blockbody.north east);
+\ifBlockHasTitle
+\draw[color=aigyellow, fill=aigyellow, text=aigblue, 
+rounded corners=\blockroundedcorners] (blocktitle.south west)
+rectangle (blocktitle.north east);
+\fi
+}
+
+\newcommand{\useblockstyleaigposterblockY}{\colorlet{blocktitlefgcolor}{aigblue} \useblockstyle{aigposterblockY}}
+
+\newcommand{\useblockstyleaigposterblockB}{\colorlet{blocktitlefgcolor}{white} \useblockstyle{aigposterblockB}}
+% Some highlighting options:
+\newcommand{\highlight}[1]{\colorbox{aigblue!10}{#1}}
+\newcommand{\mathhighlight}[1]{\colorbox{aigblue!10}{$\displaystyle #1$}}
+\newcommand{\darkhighlight}[1]{\colorbox{aigblue!20}{#1}}
+\newcommand{\darkmathhighlight}[1]{\colorbox{aigblue!20}{$\displaystyle #1$}}
+\newcommand{\yellowhighlight}[1]{\colorbox{aigyellow!30}{#1}}
+\newcommand{\yellowmathhighlight}[1]{\colorbox{aigyellow!30}{$\displaystyle #1$}}

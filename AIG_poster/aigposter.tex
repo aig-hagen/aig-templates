@@ -1,5 +1,12 @@
-\documentclass[20pt,a1paper,portrait,margin=2mm, innermargin=18mm,
-blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} % See Section 3
+\documentclass[20pt,a1paper,portrait,margin=2mm, innermargin=18mm, blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} 
+
+%\documentclass[20pt,a1paper,landscape,margin=2mm, innermargin=18mm, blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter}
+
+%\documentclass[25pt,a0paper,portrait,margin=2mm, innermargin=28mm, blockverticalspace=20mm, colspace=20mm, subcolspace=10mm]{tikzposter}
+
+%\documentclass[25pt,a0paper,landscape,margin=2mm, innermargin=28mm, blockverticalspace=20mm, colspace=20mm, subcolspace=10mm]{tikzposter}
+
+\usepackage{aigpostersettings}
 
 \usepackage[utf8]{inputenc}
 %\usepackage{cite}
@@ -11,10 +18,10 @@ blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} % See Secti
 
 \usepackage{amssymb,amsthm,amsmath}
 
-
+\usetitlestyle{aigpostertitle1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{\parbox{0.9\linewidth}{\centering The economic Style of my\\ very first Poster}}
+\title{\parbox{0.9\linewidth}{\centering Adapted Style after carefully \\ assessing posters during RATIO}}
 \institute{Artificial Intelligence Group, University of Hagen} 
 \author{Lydia Bl\"umel}
 
@@ -24,66 +31,16 @@ blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} % See Secti
 
 
 %Titlemaking
-\definetitlestyle{aighagen}{roundedcorners=0, linewidth=5pt, innersep=5pt,
-	titletotopverticalspace=0mm, titletoblockverticalspace=30mm
-}{
-\begin{scope}[line width=\titlelinewidth, rounded corners=\titleroundedcorners]
-	\draw[color=blocktitlebgcolor, fill=titlebgcolor]
-	(\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop);
-\end{scope}
-}
-
-\makeatletter
-\renewcommand\TP@maketitle{%
-	\begin{minipage}{0.7\linewidth}
-		\centering
-		\color{titlefgcolor}
-		\vspace*{0.7em}
-		{\bfseries \Huge \sc \@title \par}
-		\vspace*{1.5em}
-		{\huge \@author \par}
-		\vspace*{0.8em}
-		{\LARGE \@institute}
-	\end{minipage}%
-	\hfill
-	\begin{minipage}{0.3\linewidth}
-		\centering
-		\includegraphics[scale=0.9]{figures/logoaig.png}
-	\end{minipage}
-}
-\makeatother
-
-\usetitlestyle{aighagen}
 
 
-%Blocks
+
+%Style-Inclusion from aigpostersettings.sty (check out title options for multiple logos)
 
 
-%Colors
-\definecolorstyle{aigposter} {
-	\definecolor{aigyellow}{RGB}{210,149,81}
-	\definecolor{aigblue}{RGB}{0,76,151}
-}{
-	% Background Colors
-	\colorlet{backgroundcolor}{white}%{aigblue!30!white}
-	\colorlet{framecolor}{aigblue}
-	% Title Colors
-	\colorlet{titlefgcolor}{aigblue}
-	\colorlet{titlebgcolor}{white}
-	% Block Colors
-	\colorlet{blocktitlebgcolor}{aigblue}
-	\colorlet{blocktitlefgcolor}{white}
-	\colorlet{blockbodybgcolor}{aigblue!30!white}
-	\colorlet{blockbodyfgcolor}{black}
-	% Innerblock Colors
-	\colorlet{innerblocktitlebgcolor}{white}
-	\colorlet{innerblocktitlefgcolor}{aigblue}
-	\colorlet{innerblockbodybgcolor}{white}
-	\colorlet{innerblockbodyfgcolor}{black}
-}
-\usecolorstyle{aigposter}
-\usebackgroundstyle{VerticalGradation}
-%\usetheme{Basic} 
+\usecolorstyle{aigpostercolor}
+\usebackgroundstyle{aigposterback}
+\useblockstyle{aigposterblockB}
+
 
 
 
@@ -138,6 +95,9 @@ blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} % See Secti
 	}
 	\end{columns}
 	
+\useblockstyleaigposterblockY	%need special macro for changing the title-color, sry
+
+
 	\begin{columns} % See Section 4.4
 		\column{0.6} % See Section 4.4
 		
@@ -162,7 +122,7 @@ blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} % See Secti
 	\end{center}
 	\vspace{5pt}
 	   
-       A table as an inner block\\
+       A table as an \yellowhighlight{inner block}\\
        
        \innerblock{\centering
        	\begin{tabular}{c | c}
@@ -188,22 +148,29 @@ blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter} % See Secti
 \begin{itemize}	
 	\item[\ding{228}] cooler itemize versions
 \end{itemize}
+
+Btw imho varying block styles help with readability and make things look less monochrome=boring,
+use as u see fit
 }
+
+\useblockstyleaigposterblockB
 
 \block{TODO}{
 	
 	\begin{itemize}	
-		\item create a .sty-file
-		\item decide on a blockstyle
-		\item add highlight-colors
-		\item check compatibility with a0-format
-		\item add working referencing solution
+		\item edit blockstyle (requests?)
+		\item fix blockstylecommand for style switch
+		\item edit highlight-options
+		\item \yellowhighlight{add working referencing solution}
 		\item add examples for manipulating positioning 
+		\item fix multiple logo solutions and title format choice
+		\item edit title text format (more bf for title, textwidth)
+		\item color itemize symbols
 	\end{itemize}
 }
 
 %Contact block, may want to include references or a QR-Code for building or?
-\block[roundedcorners=0]{}{
+\block[roundedcorners=5]{}{
 \textbf{Contact me} lydia.bluemel@fernuni-hagen.de\\
    or via Teams
 }
