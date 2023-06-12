@@ -1,7 +1,7 @@
 %*******************************************************************************
 %  AIGthesis.cls
 %
-%  LaTeX document class for seminar papers and proposals 
+%  LaTeX document class for seminar papers, research lab reports, and proposals 
 %  written at the Artificial Intelligence Group.
 %
 % Adopted from the WeSTThesis.cls template.
@@ -12,7 +12,7 @@
 %--- Identification ------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{AIGpaper}[2022/09/05 v1.0 Document class for seminar papers and proposals written at the Artificial Intelligence Group, FernUniversität in Hagen.]
+\ProvidesClass{AIGpaper}[2022/09/05 v1.0 Document class for seminar papers, research lab reports, and proposals written at the Artificial Intelligence Group, FernUniversität in Hagen.]
 
 
 %--- Declaration of variables --------------------------------------------------
@@ -27,6 +27,7 @@
 
 \newif\ifseminar
 \newif\ifproposal
+\newif\ifresearchlab
 
 \newif\ifscrreprt
 
@@ -51,6 +52,7 @@
 
 \DeclareOption{seminar}{\seminartrue}
 \DeclareOption{proposal}{\proposaltrue}
+\DeclareOption{researchlab}{\researchlabtrue}
 
 \DeclareOption{scrreprt}{\scrreprttrue}
 
@@ -77,6 +79,7 @@
 
 \RequirePackage{titling}
 \RequirePackage{ifoddpage}
+
 % Default: Computer Modern (TeX-Standard)
 \iftimes%
   \RequirePackage{times}				% font type Times New Roman
@@ -165,10 +168,18 @@
                             % Proposal
                             Exposé
                         \fi
+                \else
+                    \ifresearchlab%
+                        \ifenglish%
+                            Research Lab Report
+                        \else
+                            Fachpraktikumsbericht
+                        \fi 
                     \else
-                        >>SET TYPE (seminar, bachelor...) IN DOCUMENTCLASS OPTIONS<<
+                        >>SET TYPE (seminar, proposal, researchlab) IN DOCUMENTCLASS OPTIONS<<
                     \fi
                 \fi
+            \fi
             \\[.1cm]
         \end{LARGE}
         \begin{large}
@@ -223,7 +234,7 @@
 }
 
 
-\newcommand{\makestatement}{
+\newcommand{\makestatement}[1]{
     \clearpage
     \pagestyle{empty}
         \selectlanguage{ngerman}
@@ -243,15 +254,36 @@
         der Ausarbeitung nehme ich zur Kenntnis, dass diese mit Hilfe eines 
         Plagiatserkennungsdienstes auf enthaltene Plagiate geprüft werden kann und 
         ausschließlich für Prüfungszwecke gespeichert wird.
-        
-        \vspace{2.5cm}
+
+        \ifresearchlab
+            \vspace{1.5cm}
+            \noindent
+            \multido{}{#1}{\printauthorline}
+        \else
+            \vspace{2.5cm}
+            \noindent
+            \dotfill\\
+            \begin{small}
+                \ifenglish
+                    (Place, Date)\hfill(Signature)
+                \else
+                    (Ort, Datum)\hfill(Unterschrift)
+                \fi
+            \end{small}
+        \fi
+}
+
+\newcommand{\printauthorline}{
+        \vspace{1.0cm}
+        \\\
+        \vspace{0.01cm}
         \noindent
         \dotfill\\
         \begin{small}
             \ifenglish
-                (Place, Date)\hfill(Signature)
+                (Place, Date)\hfill(Signature)\\
             \else
-                (Ort, Datum)\hfill(Unterschrift)
+                (Ort, Datum)\hfill(Unterschrift)\\
             \fi
         \end{small}
 }

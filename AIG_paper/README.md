@@ -10,7 +10,7 @@ The following options are supported:
 
 - `english`                           - Prints an english title page and statement
 - `f|m|fm`                            - gender used in the title: female, male, or both (required)
-- `seminar|proposal`                  - seminar paper or proposal (required)
+- `seminar|proposal|researchlab`      - seminar paper, research lab report, or proposal (required)
 - `scrreprt`                          - use the scrreprt documentclass (optional, default: article class)
 - `group`                             - prints two statements after the cover page (optional, default: one statement)
 - `date`                              - prints the exact date (optional, default: month and year)
