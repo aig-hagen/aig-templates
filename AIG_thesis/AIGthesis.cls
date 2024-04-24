@@ -181,7 +181,7 @@
             \raggedleft
             \includegraphics[height=1.0cm]{figures/logo_aig_transparent_bg.png} \\
             \begin{footnotesize}
-                Artificial Intelligence Group%   
+                Artificial Intelligence Group%
             \end{footnotesize}
         \end{minipage}\\
         \renewcommand{\arraystretch}{1.0} %reset arraystretch to default
@@ -231,7 +231,7 @@
             \else
                 \ifenglish%
                     in partial fulfillment of the requirements for\\
-                    the degree of 
+                    the degree of
                 \else
                     zur Erlangung des Grades
                     \iffemalemale%
@@ -259,9 +259,9 @@
                 \fi
                 \\
                 \ifenglish%
-                    in 
+                    in
                 \else
-                    im Studiengang 
+                    im Studiengang
                 \fi
                 \degreecourse\\[.75cm]
             \fi
@@ -280,9 +280,9 @@
     \begin{tabular}{ll}
         \ifseminar%
             \ifenglish%
-                Supervisors: 
+                Supervisors:
             \else
-                Betreuer: 
+                Betreuer:
             \fi
             & \firstreviewer\\
             \empty & \firstreviewerinfo\\[2.5mm]
@@ -292,14 +292,14 @@
             \ifenglish%
                 First examiner:
             \else
-                Erstgutachter: 
+                Erstgutachter:
             \fi
             & \firstreviewer\\
             \empty & \firstreviewerinfo\\[2.5mm]
             \ifenglish%
                 Advisor:
             \else
-                Betreuer: 
+                Betreuer:
             \fi
             & \advisor\\
             \empty & \advisorinfo\\[2cm]
@@ -327,96 +327,58 @@
             \loop\ifnum\theAuthorNumber>0
             \begin{Large}
                 \ifenglish%
-                    \noindent 
+                    \noindent
                     Statement
                 \else
-                    \noindent 
+                    \noindent
                     Erkl{\"a}rung
                 \fi
                 \\[5mm]
             \end{Large}
             \ifbachelor%
                 \selectlanguage{ngerman}%
-                Ich erkläre, dass ich die Bachelorarbeit selbstständig und ohne unzulässige 
-                Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur die angegebenen 
-                Quellen und Hilfsmittel verwendet und die aus diesen wörtlich oder sinngemäß 
-                entnommenen Stellen als solche kenntlich gemacht. Die Versicherung 
-                selbstständiger Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder 
-                graphische Darstellungen. Die Bachelorarbeit wurde bisher in gleicher oder 
-                ähnlicher Form weder derselben noch einer anderen Prüfungsbehörde vorgelegt 
-                und auch nicht veröffentlicht. Mit der Abgabe der elektronischen Fassung der 
+                Ich erkl\"are, dass ich die Bachelorarbeit selbstst\"andig und ohne unzul\"assige
+                Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur die angegebenen
+                Quellen und Hilfsmittel verwendet und die aus diesen w\"ortlich oder sinngem\"a\ss\
+                entnommenen Stellen als solche kenntlich gemacht. Die Versicherung
+                selbstst\"andiger Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder
+                graphische Darstellungen. Die Bachelorarbeit wurde bisher in gleicher oder
+                \"ahnlicher Form weder derselben noch einer anderen Pr\"ufungsbeh\"orde vorgelegt
+                und auch nicht ver\"offentlicht. Mit der Abgabe der elektronischen Fassung der
                 endgültigen Version der Bachelorarbeit nehme ich zur Kenntnis, dass diese mit
-                Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate geprüft werden
-                kann und ausschließlich für Prüfungszwecke gespeichert wird.
+                Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate gepr\"uft werden
+                kann und ausschlie\ss lich für Pr\"ufungszwecke gespeichert wird.
             \fi
             \ifmaster%
                 \selectlanguage{ngerman}%
                 \sloppy%
-                Ich erkläre, dass ich die Masterarbeit selbstständig und ohne unzulässige 
-                Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur die angegebenen 
-                Quellen und Hilfsmittel verwendet und die aus diesen wörtlich oder sinngemäß
-                entnommenen Stellen als solche kenntlich gemacht. Die Versicherung selbstständiger
-                Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder graphische Darstellungen.
-                Die Arbeit wurde bisher in gleicher oder ähnlicher Form weder derselben noch einer 
-                anderen Prüfungsbehörde vorgelegt und auch nicht veröffentlicht. Mit der Abgabe der 
-                elektronischen Fassung der endgültigen Version der Arbeit nehme ich zur Kenntnis, 
-                dass diese mit Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate geprüft
-                werden kann und ausschließlich für Prüfungszwecke gespeichert wird.
+                Ich erkl\"are, dass ich die Masterarbeit selbstst\"andig und ohne unzul\"assige
+                Inanspruchnahme Dritter verfasst habe. Ich habe dabei nur die angegebenen
+                Quellen und Hilfsmittel verwendet und die aus diesen w\"ortlich oder sinngem\"a\ss\
+                entnommenen Stellen als solche kenntlich gemacht. Die Versicherung selbstst\"andiger
+                Arbeit gilt auch f\"ur enthaltene Zeichnungen, Skizzen oder graphische Darstellungen.
+                Die Arbeit wurde bisher in gleicher oder \"ahnlicher Form weder derselben noch einer
+                anderen Pr\"ufungsbeh\"orde vorgelegt und auch nicht ver\"offentlicht. Mit der Abgabe der
+                elektronischen Fassung der endg\"ultigen Version der Arbeit nehme ich zur Kenntnis,
+                dass diese mit Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate gepr\"uft
+                werden kann und ausschlie\ss lich f\"ur Pr\"ufungszwecke gespeichert wird.
             \fi
-            \\[.75cm]
-            \begin{center}
-                \begin{tabular}{l p{1cm} cc}
-                    \empty & \empty & 
-                    \ifenglish%
-                        Yes
-                    \else
-                        Ja 
-                    \fi
-                    & 
-                    \ifenglish%
-                        No
-                    \else
-                        Nein
-                    \fi
-                    \\[.5cm]
-                    \ifenglish%
-                        I agree to have this thesis published in the library.& \empty & $\square$ & $\square$\\[.5cm]
-                    \else
-                        Mit der Einstellung dieser Arbeit in die Bibliothek& \empty & \empty & \empty\\
-                            bin ich einverstanden. & \empty & $\square$ & $\square$\\[.5cm]
-                    \fi
-                    \ifenglish%
-                        I agree to have this thesis published on the webpage of & \empty & \empty & \empty\\
-                        the artificial intelligence group.& \empty & $\square$ & $\square$\\[.5cm]
-                    \else
-                        Der Ver\"offentlichung dieser Arbeit auf der Webseite des & \empty & \empty & \empty\\
-                        Lehrgebiets Künstliche Intelligenz stimme ich zu.& \empty & $\square$ & $\square$\\[.5cm]
-                    \fi
-                    \ifenglish%
-                        The thesis text is available under a Creative Commons  & \empty & \empty & \empty\\
-                        License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
-                    \else
-                        Der Text dieser Arbeit ist unter einer Creative & \empty & \empty & \empty \\
-                        Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
-                    \fi
-                    \ifenglish%
-                        The source code is available under a GNU General Public & \empty & \empty & \empty\\
-                        License (GPLv3). & \empty & $\square$ & $\square$\\[.5cm]
-                    \else
-                        Der Quellcode ist unter einer GNU General Public & \empty & \empty & \empty\\
-                        License (GPLv3) verf\"ugbar. & \empty & $\square$ & $\square$\\[.5cm]
-                    \fi
-                    \ifenglish%
-                        The collected data is available under a Creative Commons & \empty & \empty & \empty\\
-                        License (CC BY-SA 4.0). & \empty & $\square$ & $\square$\\[.5cm]
-                    \else
-                        Die erhobenen Daten sind unter einer Creative & \empty & \empty & \empty\\
-                        Commons Lizenz (CC BY-SA 4.0) verf\"ugbar. & \empty & $\square$ & $\square$\\
-                    \fi
-                \end{tabular}\\[2cm]
-            \end{center}
+            \\[.5cm]
+            \ifenglish%
+                I explicitly agree to have this thesis published on the webpage of
+                the artificial intelligence group and endorse its public availability.
+            \else
+                Der Ver\"offentlichung dieser Arbeit auf der Webseite des
+                Lehrgebiets K\"unstliche Intelligenz und damit dem freien Zugang zu dieser Arbeit stimme ich ausdr\"ucklich zu.
+            \fi\\[.5cm]
+            \ifenglish%
+                Software created for this work has been made available as open source; a corresponding link to the sources is included in this work. The same applies to any research data.
+            \else
+                F\"ur diese Arbeit erstellte Software wurde quelloffen verf\"ugbar gemacht, ein entsprechender Link zu den Quellen ist in dieser Arbeit enthalten. Gleiches gilt f\"ur angefallene Forschungsdaten.
+            \fi\\[.9cm]
+
             \begin{small}
-                \dotfill\\
+                \noindent\dotfill\\
                 \ifenglish
                     (Place, Date)\hfill(Signature)
                 \else
