@@ -1,4 +1,4 @@
-# LaTeX document class for seminar papers and proposals written in the Artificial Intelligence Group.
+# LaTeX document class for theses, proposals, seminar papers and research lab reports written at the Artificial Intelligence Group.
 The document class "AIGpaper.cls" is based on "WeSTthesis.cls". The document class provides a cover page template, a statement on source usage and publication, and some basic text formatting.
 
 ## Usage
@@ -8,27 +8,48 @@ The following command is used to include the document class in the .tex document
 
 The following options are supported:
 
-- `english`                           - Prints an english title page and statement
-- `f|m|fm`                            - gender used in the title: female, male, or both (required)
-- `seminar|proposal|researchlab`      - seminar paper, research lab report, or proposal (required)
-- `scrreprt`                          - use the scrreprt documentclass (optional, default: article class)
-- `group`                             - prints two statements after the cover page (optional, default: one statement)
-- `date`                              - prints the exact date (optional, default: month and year)
-- `times|palatino`	                  - used font (optional, default: Computer Modern)
-- `frames`                            - prints additional frames to check the document layout (optional, default: no frames)
+- `seminar|researchlab|proposal|bachelor|master`    - seminar paper, research lab report, proposal, bachelor's thesis, or master's thesis (required)
+- `english`                                         - Language of the document (optional, default: german)
+- `f|m|fm`                                          - gender used in the title: female, male, or both (required for theses)
+- `times|palatino`                                  - used font (optional, default: Computer Modern)
+- `twoside`                                         - layout for two-sided print (optional, default: one-sided)
+- `binding`                                         - adds 8mm on the left/right side for binding (optional, default: no binding)
+- `group`                                           - prints two statements after the cover page (optional, default: one statement)
+- `frames`                                          - prints additional frames to check the document layout (optional, default: no frames)
 
-The following commands are used to format the title. They are used before `\begin{document}`.
+If the option `twoside` is used, blank pages are inserted after the cover page and its following statement(s).
 
-    \title{paper title}
+The following commands are used to format the cover page. They must be used before `\begin{document}`.
+
+    \title{thesis title}
     \author{author(s) name(s)}
 
-The following commands declare the abstract.
+The following commands are only required for bachelor and master theses.
 
-    \abstract{Abstract text.}
+    \degreecourse{degree course}
+
+    \firstreviewer{Name of the first reviewer (incl. academic title)}
+    \firstreviewerinfo{institute/research group}
+
+    \advisor{Name of the advisor (incl. academic title)}
+    \advisorinfo{insititute/research group or external institution}
+
+The following commands declare the abstract texts.
+
+    \englishabstract{English abstract text.}
+    \germanabstract{German abstract text.}
 
 The following commands are used after the `\begin{document}` statement.
 
-    \maketitle  % prints the title and author information
+    \maketitle  % prints the cover page and a statement about used sources and publication
 
-## Example
-For an example see [AIG_seminar.tex](AIG_seminar.tex).
+For seminar papers and research lab reports the required statement is created before the '\end{document}' with
+
+    \makestatement
+
+or, if there are multiple authors, e.g. for 5 authors, use
+
+    \makestatement{5}
+
+## Examples
+For an example see [AIG_bachelorthesis.tex](AIG_bachelorthesis.tex), [AIG_masterthesis.tex](AIG_masterthesis.tex), [AIG_proposal.tex](AIG_proposal.tex), [AIG_seminar.tex](AIG_seminar.tex) or [AIG_research_lab.tex](AIG_research_lab.tex).

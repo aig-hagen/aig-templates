@@ -1,2 +1,2 @@
-# LaTeX templates for AIG theses, beamer presentations, and posters
+# LaTeX templates for AIG theses, papers, beamer presentations, and posters
 

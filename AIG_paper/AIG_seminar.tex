@@ -1,16 +1,14 @@
-\documentclass[f,seminar,palatino]{AIGpaper}
-% Please read the README.md file for additional information on the parameters and overall usage of AIGthesis
+\documentclass[seminar,palatino]{AIGpaper}
+% Please read the README.md file for additional information on the parameters and overall usage of AIGpaper
 
-\usepackage[english,ngerman]{babel}		    % English and new German spelling
-\usepackage[utf8]{inputenc}                 % correct input encoding
-\usepackage[T1]{fontenc}                    % correct output encoding
+%%%% Package Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}					    % enhanced support for graphics
 \usepackage{tabularx}				      	% more flexible tabular
 \usepackage{amsfonts}					    % math fonts
 \usepackage{amssymb}					    % math symbols
 \usepackage{amsmath}					    % overall enhancements to math environment
 
-% optional packages
+%%%% optional packages
 \usepackage{tikz}                           % creating graphs and other structures
 \usetikzlibrary{arrows,positioning}
 \tikzset{
@@ -21,28 +19,28 @@
 }
 
 
-% === set information ===
+%%%% Author and Title Information %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \author{Erika Mustermann}
 
 \title{Die Verbreitung des Begriffes \glqq{}Mustermann\grqq{} im Zusammenhang mit Beispieltexten}
 
 
-% ========== abstract ===========
+%%%% Abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\abstract{
+\germanabstract{
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 }
+
+% use this if the document is written in english
+%\englishabstract{}
 
 
 \begin{document}
 
 \maketitle % prints title and author information, as well as the abstract 
 
-% optional: change document language from ngerman to english
-%\selectlanguage{english}
 
-
-% ========== beginning of the actual text section ===========
+% ===================== Beginning of the actual text section =====================
 
 \section{Lorem Ipsum}
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
@@ -65,7 +63,6 @@ Figure \ref{fig:af} shows an example of an abstract argumentation framework \cit
         \path(args3) edge [->, bend right] (args4);
         \path(args4) edge [->, bend right] (args3);
     	\path(args4) edge [->] (args2);
-    	
     \end{tikzpicture}
     \caption{An abstract argumentation framework.}
     \label{fig:af}
@@ -94,7 +91,6 @@ Städte, Länder, Flüsse
 \bibliographystyle{alpha}
 \bibliography{references}
 
-
-\makestatement
+\makestatement{1}
 
 \end{document}
