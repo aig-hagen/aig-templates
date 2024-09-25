@@ -126,8 +126,7 @@
 
 % Command for creating bibliography
 \newcommand{\addreferences}{
-    \cleardoublepage
-    \bibliographystyle{alpha}
+    \bibliographystyle{plain}
     \bibliography{references}
 }
 
