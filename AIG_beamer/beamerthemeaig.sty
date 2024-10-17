@@ -1,0 +1,111 @@
+% Package Requirements
+\RequirePackage{beamerthemesplit}
+\RequirePackage{appendixnumberbeamer}
+\RequirePackage{tikz}
+
+% Color definitions:
+\definecolor{aigyellow}{RGB}{210,149,81}
+\definecolor{aigblue}{RGB}{0,76,151}
+\definecolor{examplegreen}{RGB}{30,161,6}
+
+% Set Color Scheme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor*{palette primary}{bg=aigblue,fg=white}
+\setbeamercolor*{palette quaternary}{bg=aigyellow}
+\setbeamercovered{transparent}
+
+% Set transparency value for covered parts of a slide 
+\setbeamercovered{transparent=0}
+
+% Blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standard Block
+\setbeamercolor{block title}{bg=aigblue!20, fg=aigblue}
+\setbeamercolor{block body}{bg=aigblue!10}
+
+% Alert Block
+\setbeamercolor{block title alerted}{bg=aigyellow!30, fg=aigyellow!80!black}
+\setbeamercolor{block body alerted}{bg=aigyellow!20}
+\AtBeginEnvironment{alertblock}{\setbeamercolor{itemize item}{fg=aigyellow!80!black} \setbeamercolor{itemize subitem}{fg=aigyellow!80!black}}
+
+% Example block
+\setbeamercolor{block title example}{bg=examplegreen!20}
+\setbeamercolor{block body example}{bg=examplegreen!10}
+\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize item}{fg=examplegreen} \setbeamercolor{itemize subitem}{fg=examplegreen}}
+
+% Itemize Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bullet points
+\setbeamercolor{itemize item}{fg=aigblue}
+\setbeamercolor{itemize subitem}{fg=aigblue}
+
+% Enumerate items
+\setbeamercolor{enumerate item}{fg=aigblue}
+\setbeamercolor{enumerate subitem}{fg=aigblue}
+
+% Font Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Smaller frame title
+\setbeamerfont{frametitle}{size=\large}
+
+% Bold block title
+\setbeamerfont*{block title}{series=\bfseries}
+
+% Table of contents %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{section in toc}{fg=aigblue}
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamercolor{section number projected}{bg=aigblue}
+\setbeamercolor{subsection number projected}{bg=aigblue}
+
+% Table of contents -> sections
+\AtBeginSection[]{	
+	\begin{frame}
+		\frametitle{Overview}
+        \tableofcontents[currentsection,currentsubsection,subsectionstyle=show/shaded/shaded,subsubsectionstyle=show/shaded/shaded]
+	\end{frame}
+}
+
+% Table of contents -> subsections
+\AtBeginSubsection[]{	
+	\begin{frame}
+		\frametitle{Overview}
+		\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/shaded/shaded,subsubsectionstyle=show/show/shaded]
+	\end{frame}
+}
+
+% Display Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hide navigation symbols
+\beamertemplatenavigationsymbolsempty 
+
+% Hide headline
+\setbeamertemplate{headline}{}
+
+% Footline Style
+\defbeamertemplate*{footline}{aig theme}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% Other Stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Command to disable logo on slides
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+
+% Some highlighting options:
+\newcommand{\highlight}[1]{\colorbox{aigblue!10}{#1}}
+\newcommand{\mathhighlight}[1]{\colorbox{aigblue!10}{$\displaystyle #1$}}
+\newcommand{\darkhighlight}[1]{\colorbox{aigblue!20}{#1}}
+\newcommand{\darkmathhighlight}[1]{\colorbox{aigblue!20}{$\displaystyle #1$}}
+\newcommand{\yellowhighlight}[1]{\colorbox{aigyellow!30}{#1}}
+\newcommand{\yellowmathhighlight}[1]{\colorbox{aigyellow!30}{$\displaystyle #1$}}
+
+% Additional column styles for tables, which include a parameter for the column width:
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% Additional font size between tiny and scriptsize:
+\makeatletter
+\newcommand\notsotiny{\@setfontsize\notsotiny{7}{8}}
+\makeatother
