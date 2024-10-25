@@ -151,6 +151,15 @@
         \renewcommand{\germantitle}{Masterarbeit}
     \fi
 \fi
+
+\newcommand{\englishtitle}{paper}
+\ifbachelor%
+    \renewcommand{\englishtitle}{bachelor´s thesis}
+\else
+    \ifmaster%
+        \renewcommand{\englishtitle}{master´s thesis}
+    \fi
+\fi
                 
 
 % ------ assertion ------
@@ -159,40 +168,55 @@
     \clearpage
     \setcounter{AuthorNumber}{#1}
 
-    \begin{LARGE}
-        \ifenglish%
-            \noindent
-            Statement
-        \else
-            \noindent
-            Erkl{\"a}rung
-        \fi
-        \\[5mm]
-    \end{LARGE}
-    \selectlanguage{ngerman}
-    Ich erkl\"are, dass ich die
-    \ifthesis\germantitle~\else
-        schriftliche Ausarbeitung zum
-        \ifseminar%
-            Seminar
-        \else
-            \ifresearchlab%
-                Fachpraktikum
+    \ifenglish
+        \begin{LARGE}
+        \noindent
+        Statement\\[5mm]
+        \end{LARGE}
+
+        \noindent
+        I declare that I have written the 
+        \ifthesis\englishtitle~\else
+            \ifseminar%
+                seminar paper
             \else
-                \PackageError{AIGthesis}{Unsupported document type for creating statement}{Statement is only required for bachelor, master, seminar and researchlab}
+                \ifresearchlab%
+                    research lab report
+                \else
+                    \PackageError{AIGthesis}{Unsupported document type for creating statement}{Statement is only required for bachelor, master, seminar and researchlab}
+                \fi
             \fi
         \fi
-    \fi
-    selbstst\"andig und ohne unzul\"assige Inanspruchnahme Dritter verfasst habe.
-    Ich habe dabei nur die angegebenen Quellen und Hilfsmittel verwendet und die aus diesen w\"ortlich oder sinngem\"a\ss\ entnommenen Stellen als solche kenntlich gemacht. 
-    Die Versicherung selbstst\"andiger Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder graphische Darstellungen.
-    Die \germantitle~ wurde bisher in gleicher oder \"ahnlicher Form weder derselben noch einer anderen Pr\"ufungsbeh\"orde vorgelegt und auch nicht ver\"offentlicht.
-    Mit der Abgabe der elektronischen Fassung der endgültigen Version der \germantitle~ nehme ich zur Kenntnis, dass diese mit Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate gepr\"uft werden kann und ausschlie\ss lich für Pr\"ufungszwecke gespeichert wird.
-    \\[.5cm]
-    \ifenglish%
-        \selectlanguage{english}
+        independently and without unauthorized use of third parties.
+        I have only used the indicated resources and I have clearly marked the passages taken verbatim or in the sense of these resources as such. 
+        The assurance of independent work also applies to any drawings, sketches or graphical representations. 
+        The work has not previously been submitted in the same or similar form to the same or another examination authority and has not been published. 
+        By submitting the electronic version of the final version of the \englishtitle, I acknowledge that it will be checked by a plagiarism detection service to check for plagiarism and that it will be stored exclusively for examination purposes.\\[.5cm]
     \else
-        \selectlanguage{ngerman}
+        \begin{LARGE}
+        \noindent
+        Erkl{\"a}rung\\[5mm]
+        \end{LARGE}
+
+        \noindent
+        Ich erkl\"are, dass ich die
+        \ifthesis\germantitle~\else
+            schriftliche Ausarbeitung zum
+            \ifseminar%
+                Seminar
+            \else
+                \ifresearchlab%
+                    Fachpraktikum
+                \else
+                    \PackageError{AIGthesis}{Unsupported document type for creating statement}{Statement is only required for bachelor, master, seminar and researchlab}
+                \fi
+            \fi
+        \fi
+        selbstst\"andig und ohne unzul\"assige Inanspruchnahme Dritter verfasst habe.
+        Ich habe dabei nur die angegebenen Quellen und Hilfsmittel verwendet und die aus diesen w\"ortlich oder sinngem\"a\ss\ entnommenen Stellen als solche kenntlich gemacht. 
+        Die Versicherung selbstst\"andiger Arbeit gilt auch für enthaltene Zeichnungen, Skizzen oder graphische Darstellungen.
+        Die \germantitle~ wurde bisher in gleicher oder \"ahnlicher Form weder derselben noch einer anderen Pr\"ufungsbeh\"orde vorgelegt und auch nicht ver\"offentlicht.
+        Mit der Abgabe der elektronischen Fassung der endgültigen Version der \germantitle~ nehme ich zur Kenntnis, dass diese mit Hilfe eines Plagiatserkennungsdienstes auf enthaltene Plagiate gepr\"uft werden kann und ausschlie\ss lich für Pr\"ufungszwecke gespeichert wird.\\[.5cm]
     \fi
     \ifthesis%
         \ifenglish%
