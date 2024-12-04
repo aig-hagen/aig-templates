@@ -53,3 +53,6 @@ or, if there are multiple authors, e.g. for 5 authors, use
 
 ## Examples
 For an example see [AIG_bachelorthesis.tex](AIG_bachelorthesis.tex), [AIG_masterthesis.tex](AIG_masterthesis.tex), [AIG_proposal.tex](AIG_proposal.tex), [AIG_seminar.tex](AIG_seminar.tex) or [AIG_research_lab.tex](AIG_research_lab.tex).
+
+
+This template is subject to the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.

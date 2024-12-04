@@ -6,13 +6,17 @@
 %
 % Adopted from the WeSTThesis.cls template.
 %
+% Version:  v1.7
+% Date:     2024/12/04
+% License:  CC BY 4.0
+%
 %*******************************************************************************
 
 
 %--- Identification ------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{AIGpaper}[2024/10/25 v1.6 Document class for bachelor's theses, master's theses, thesis proposals, seminar papers and research lab reports written at the Artificial Intelligence Group, FernUniversität in Hagen.]
+\ProvidesClass{AIGpaper}[2024/12/04 v1.7 Document class for bachelor's theses, master's theses, thesis proposals, seminar papers and research lab reports written at the Artificial Intelligence Group, FernUniversität in Hagen.]
 
 
 %--- Declaration of variables --------------------------------------------------
