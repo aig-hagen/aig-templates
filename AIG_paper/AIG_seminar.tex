@@ -7,6 +7,7 @@
 \usepackage{amsfonts}					    % math fonts
 \usepackage{amssymb}					    % math symbols
 \usepackage{amsmath}					    % overall enhancements to math environment
+\usepackage{amsthm}                         % Create enviroments for definitions, theorems, ...
 
 %%%% optional packages
 \usepackage{tikz}                           % creating graphs and other structures
@@ -17,6 +18,19 @@
     %Define style for argument
     args/.style={circle, minimum size=0.9cm,draw=black, thick,fill=white},
 }
+
+%%%% Enviroments for theorems, propositions, definitions, ....
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem*{observation*}{Observation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%% Author and Title Information %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,6 +99,34 @@ Figure \ref{fig:af} shows an example of an abstract argumentation framework \cit
 
 \subsection{Encoding Test}
 Städte, Länder, Flüsse
+
+
+\subsection{Propositions, Definitions, and Examples}
+For propositions and definitions please use appropriate environments.
+Here is an example for a definition.
+
+\begin{definition}
+	A deterministic finite automaton (DFA) is a tuple \( A=(Q,\Sigma,\delta,q_0,F) \) consisting of
+	\begin{itemize}
+		\item a finite set of states \( Q \) ,
+		\item a finite alphabet \( \Sigma \),
+		\item a transition function \( \delta:Q\times\Sigma\to Q \), 
+		\item a start state \( q_0 \in Q \), and
+		\item a set of accepting states \( F \subseteq Q \)
+	\end{itemize}
+\end{definition}
+
+Here is an example for a proposition
+
+\begin{proposition}
+	The problem of deciding whether a Turing machine halts for an input string is undecidable.
+\end{proposition}
+
+Examples can be made with the example environment.
+
+\begin{example}
+	Content of the example environment.
+\end{example}
 
 
 % References
