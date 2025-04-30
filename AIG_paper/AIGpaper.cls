@@ -383,34 +383,34 @@
                 \\[.2cm]
             \end{huge}
             \ifenglish%
-                in partial fulfillment of the requirements for\\
+                in partial fulfilment of the requirements for\\
                 the degree of
             \else
                 zur Erlangung des Grades
-                \iffemalemale%
-                    einer/eines
-                \else
-                    \iffemale%
-                        einer
-                    \else
-                        \ifmale%
-                            eines
-                        \else
-                            >>SET GENDER (fm, f, or m) IN DOCUMENTCLASS OPTIONS<<
-                        \fi
-                    \fi
-                \fi
+%                \iffemalemale%
+%                    einer/eines
+%                \else
+%                    \iffemale%
+%                        einer
+%                    \else
+%                        \ifmale%
+%                            eines
+%                        \else
+%                            >>SET GENDER (fm, f, or m) IN DOCUMENTCLASS OPTIONS<<
+%                        \fi
+%                    \fi
+%                \fi
             \fi
             \ifbachelor%
-                Bachelor of Science (B.Sc.)
+                \emph{Bachelor of Science (B.Sc.)}     
             \else
                 \ifmaster%
-                    Master of Science (M.Sc.)
+                    \emph{Master of Science (M.Sc.)}
                 \else
                     >>SET GRADE (bachelor or master) IN DOCUMENTCLASS OPTIONS<<
                 \fi
             \fi
-            \\
+            \linebreak
             \ifenglish%
                 in
             \else
