@@ -10,11 +10,9 @@ The following options are supported:
 
 - `seminar|researchlab|proposal|bachelor|master`    - seminar paper, research lab report, proposal, bachelor's thesis, or master's thesis (required)
 - `english`                                         - Language of the document (optional, default: german)
-- `f|m|fm`                                          - gender used in the title: female, male, or both (required for theses)
 - `times|palatino`                                  - used font (optional, default: Computer Modern)
 - `twoside`                                         - layout for two-sided print (optional, default: one-sided)
 - `binding`                                         - adds 8mm on the left/right side for binding (optional, default: no binding)
-- `group`                                           - prints two statements after the cover page (optional, default: one statement)
 - `frames`                                          - prints additional frames to check the document layout (optional, default: no frames)
 
 If the option `twoside` is used, blank pages are inserted after the cover page and its following statement(s).

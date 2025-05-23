@@ -6,8 +6,8 @@
 %
 % Adopted from the WeSTThesis.cls template.
 %
-% Version:  v1.7
-% Date:     2024/12/04
+% Version:  v1.8
+% Date:     2025/05/23
 % License:  CC BY 4.0
 %
 %*******************************************************************************
@@ -16,18 +16,12 @@
 %--- Identification ------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{AIGpaper}[2024/12/04 v1.7 Document class for bachelor's theses, master's theses, thesis proposals, seminar papers and research lab reports written at the Artificial Intelligence Group, FernUniversität in Hagen.]
+\ProvidesClass{AIGpaper}[2025/05/23 v1.8 Document class for bachelor's theses, master's theses, thesis proposals, seminar papers and research lab reports written at the Artificial Intelligence Group, FernUniversität in Hagen.]
 
 
 %--- Declaration of variables --------------------------------------------------
 
 \newif\ifenglish
-
-\newif\iffemalemale
-\newif\iffemale
-\newif\ifmale
-
-\newif\ifgroup
 
 \newif\ifseminar
 \newif\ifproposal
@@ -50,12 +44,6 @@
 
 %TODO make this depending on \languagename?
 \DeclareOption{english}{\englishtrue}
-
-\DeclareOption{fm}{\femalemaletrue}
-\DeclareOption{f}{\femaletrue}
-\DeclareOption{m}{\maletrue}
-
-\DeclareOption{group}{\grouptrue}
 
 \DeclareOption{seminar}{\seminartrue}
 \DeclareOption{proposal}{\proposaltrue}
@@ -334,8 +322,10 @@
 %\begin{titlepage}
     \begin{center}
         \renewcommand{\arraystretch}{.8}
+        %\noindent\rule{\textwidth}{0.4pt} 
         \begin{minipage}{.5\textwidth}
-            \includegraphics[height=1.0cm]{figures/Uni_hagen_logo.png}\\
+            \includegraphics[height=1.0cm]{figures/Uni_hagen_logo.png}\\[0.1cm]
+            %\noindent\rule{\textwidth}{0.4pt} 
             \begin{footnotesize}
                 \ifenglish%
                     Faculty of Mathematics and Computer Science
@@ -347,7 +337,8 @@
         \hfill%
         \begin{minipage}{.5\textwidth}
             \raggedleft
-            \includegraphics[height=1.05cm]{AIG_paper/figures/logoaig2025_transparent.png}\\
+            \includegraphics[height=1.085cm]{AIG_paper/figures/logoaig2025_transparent.png}\\[0.1cm]
+            %\noindent\rule{\textwidth}{0.4pt} 
             \begin{footnotesize}
                 \ifenglish%
                     Artificial Intelligence Group
@@ -387,19 +378,6 @@
                 the degree of
             \else
                 zur Erlangung des Grades
-%                \iffemalemale%
-%                    einer/eines
-%                \else
-%                    \iffemale%
-%                        einer
-%                    \else
-%                        \ifmale%
-%                            eines
-%                        \else
-%                            >>SET GENDER (fm, f, or m) IN DOCUMENTCLASS OPTIONS<<
-%                        \fi
-%                    \fi
-%                \fi
             \fi
             \ifbachelor%
                 \emph{Bachelor of Science (B.Sc.)}     
@@ -499,15 +477,8 @@
 \fi
 
 \ifthesis%
-    \ifgroup%
-        \makestatement{1}
-        \cleardoublepage
-        \makestatement{1}
-        \cleardoublepage
-    \else
-        \makestatement{1}
-        \cleardoublepage
-    \fi
+    \makestatement{1}
+    \cleardoublepage
 \fi
 
 \makeabstract
