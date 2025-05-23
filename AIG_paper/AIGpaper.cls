@@ -347,7 +347,7 @@
         \hfill%
         \begin{minipage}{.5\textwidth}
             \raggedleft
-            \includegraphics[height=1.0cm]{figures/logo_aig_transparent_bg.png}\\
+            \includegraphics[height=1.05cm]{AIG_paper/figures/logoaig2025_transparent.png}\\
             \begin{footnotesize}
                 \ifenglish%
                     Artificial Intelligence Group
