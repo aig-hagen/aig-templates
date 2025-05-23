@@ -130,7 +130,7 @@
 
 % Command for creating bibliography
 \newcommand{\addreferences}{
-    \bibliographystyle{plain}
+    \bibliographystyle{abbrv}
     \bibliography{references}
 }
 
