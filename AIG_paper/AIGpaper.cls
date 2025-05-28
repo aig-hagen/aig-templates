@@ -337,7 +337,7 @@
         \hfill%
         \begin{minipage}{.5\textwidth}
             \raggedleft
-            \includegraphics[height=1.085cm]{AIG_paper/figures/logoaig2025_transparent.png}\\[0.1cm]
+            \includegraphics[height=1.085cm]{figures/logoaig2025_transparent.png}\\[0.1cm]
             %\noindent\rule{\textwidth}{0.4pt} 
             \begin{footnotesize}
                 \ifenglish%
