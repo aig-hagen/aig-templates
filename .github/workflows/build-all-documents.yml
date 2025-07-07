@@ -11,7 +11,7 @@ on:
       build_all:
         description: "Build all available documents"
         required: false
-        default: true
+        default: false
         type: boolean
 
 permissions:
