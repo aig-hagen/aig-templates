@@ -1,0 +1,31 @@
+# Redacted for privacy
+meta.tex
+
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.fls
+*.fdb_latexmk
+*.snm
+*.synctex(busy)
+*.synctex.gz(busy)
+*.nav
+*.vrb
+*.synctex.gz
+
+# Generated files
+*.pdf

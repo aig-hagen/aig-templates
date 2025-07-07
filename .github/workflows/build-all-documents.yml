@@ -1,0 +1,135 @@
+name: Build All AIG Documents
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Build main documents
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_proposal.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_masterthesis.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      # Try to build other documents
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_bachelorthesis.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_research_lab.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_seminar.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      # Upload artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AIG_documents
+          path: AIG_paper/*.pdf
+
+      # Create website with document selection
+      - run: |
+          mkdir _site
+          cp AIG_paper/*.pdf _site/ 2>/dev/null || true
+
+          # Generate document list dynamically
+          echo "const documents = [" > _site/docs.js
+          for pdf in _site/*.pdf; do
+            if [ -f "$pdf" ]; then
+              filename=$(basename "$pdf")
+              title=$(echo "$filename" | sed 's/AIG_//g' | sed 's/_/ /g' | sed 's/\.pdf$//g' | sed 's/\b\w/\U&/g')
+              echo "  { file: '$filename', title: '$title' }," >> _site/docs.js
+            fi
+          done
+          echo "];" >> _site/docs.js
+
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>AIG Documents</title>
+              <style>
+                  body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+                  .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 30px; }
+                  h1 { color: #333; margin-bottom: 20px; }
+                  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+                  .card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 20px; cursor: pointer; transition: all 0.2s; }
+                  .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+                  .card h3 { margin: 0 0 8px 0; color: #495057; }
+                  .viewer { display: none; }
+                  .viewer.active { display: block; }
+                  .back-btn { background: #007bff; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-bottom: 15px; }
+                  .back-btn:hover { background: #0056b3; }
+                  iframe { width: 100%; height: 80vh; border: none; border-radius: 4px; }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <div id="selection">
+                      <h1>AIG Documents</h1>
+                      <div class="grid" id="document-grid"></div>
+                  </div>
+                  <div id="viewer" class="viewer">
+                      <button class="back-btn" onclick="showSelection()">← Back</button>
+                      <iframe id="pdf-frame"></iframe>
+                  </div>
+              </div>
+              
+              <script src="docs.js"></script>
+              <script>
+                  const grid = document.getElementById('document-grid');
+                  documents.forEach(doc => {
+                      const card = document.createElement('div');
+                      card.className = 'card';
+                      card.innerHTML = `<h3>${doc.title}</h3>`;
+                      card.onclick = () => showDocument(doc.file, doc.title);
+                      grid.appendChild(card);
+                  });
+                  
+                  function showDocument(file, title) {
+                      document.getElementById('selection').style.display = 'none';
+                      document.getElementById('viewer').style.display = 'block';
+                      document.getElementById('pdf-frame').src = file;
+                      document.title = title + ' - AIG Documents';
+                  }
+                  
+                  function showSelection() {
+                      document.getElementById('selection').style.display = 'block';
+                      document.getElementById('viewer').style.display = 'none';
+                      document.getElementById('pdf-frame').src = '';
+                      document.title = 'AIG Documents';
+                  }
+              </script>
+          </body>
+          </html>
+          EOF
+
+      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/deploy-pages@v4
