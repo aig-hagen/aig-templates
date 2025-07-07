@@ -1,7 +1,18 @@
-name: Build All AIG Documents
+name: Build AIG Documents
 
 on:
   workflow_dispatch:
+    inputs:
+      documents:
+        description: "Documents to build (comma-separated)"
+        required: false
+        default: "beamer,bachelorthesis,masterthesis,proposal,research_lab,seminar,poster"
+        type: string
+      build_all:
+        description: "Build all available documents"
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: read
@@ -15,47 +26,78 @@ jobs:
       - uses: actions/checkout@v4
 
       # Build main documents
-      - uses: xu-cheng/latex-action@v3
+
+      - name: Build Beamer Presentation
+        if: ${{ inputs.build_all || contains(inputs.documents, 'beamer') }}
+        uses: xu-cheng/latex-action@v3
         with:
-          root_file: AIG_proposal.tex
-          working_directory: AIG_paper
+          root_file: aig_beamer.tex
+          working_directory: AIG_beamer
         continue-on-error: true
 
-      - uses: xu-cheng/latex-action@v3
-        with:
-          root_file: AIG_masterthesis.tex
-          working_directory: AIG_paper
-        continue-on-error: true
-
-      # Try to build other documents
-      - uses: xu-cheng/latex-action@v3
+      - name: Build Bachelor Thesis
+        if: ${{ inputs.build_all || contains(inputs.documents, 'bachelorthesis') }}
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: AIG_bachelorthesis.tex
           working_directory: AIG_paper
         continue-on-error: true
 
-      - uses: xu-cheng/latex-action@v3
+      - name: Build Master Thesis
+        if: ${{ inputs.build_all || contains(inputs.documents, 'masterthesis') }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_masterthesis.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      - name: Build Proposal
+        if: ${{ inputs.build_all || contains(inputs.documents, 'proposal') }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: AIG_proposal.tex
+          working_directory: AIG_paper
+        continue-on-error: true
+
+      - name: Build Research Lab
+        if: ${{ inputs.build_all || contains(inputs.documents, 'research_lab') }}
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: AIG_research_lab.tex
           working_directory: AIG_paper
         continue-on-error: true
 
-      - uses: xu-cheng/latex-action@v3
+      - name: Build Seminar
+        if: ${{ inputs.build_all || contains(inputs.documents, 'seminar') }}
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: AIG_seminar.tex
           working_directory: AIG_paper
+        continue-on-error: true
+
+      - name: Build Poster
+        if: ${{ inputs.build_all || contains(inputs.documents, 'poster') }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: aigposter.tex
+          working_directory: AIG_poster
         continue-on-error: true
 
       # Upload artifacts
       - uses: actions/upload-artifact@v4
         with:
           name: AIG_documents
-          path: AIG_paper/*.pdf
+          path: |
+            AIG_paper/*.pdf
+            AIG_beamer/*.pdf
+            AIG_poster/*.pdf
 
       # Create website with document selection
       - run: |
           mkdir _site
           cp AIG_paper/*.pdf _site/ 2>/dev/null || true
+          cp AIG_beamer/*.pdf _site/ 2>/dev/null || true
+          cp AIG_poster/*.pdf _site/ 2>/dev/null || true
 
           # Generate document list dynamically
           echo "const documents = [" > _site/docs.js
