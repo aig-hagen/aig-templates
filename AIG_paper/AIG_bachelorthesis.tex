@@ -1,21 +1,34 @@
 \documentclass[bachelor,palatino,twoside,binding]{AIGpaper}
 % Please read the README.md file for additional information on the parameters and overall usage of AIGpaper
 
-\usepackage{graphicx}					    % enhanced support for graphics
-\usepackage{tabularx}				      	% more flexible tabular
-\usepackage{amsfonts}					    % math fonts
-\usepackage{amssymb}					    % math symbols
-\usepackage{amsmath}					    % overall enhancements to math environment
+%%%% Package Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}					           % enhanced support for graphics
+\usepackage{amsfonts}					           % math fonts
+\usepackage{amssymb}					           % math symbols
+\usepackage{amsmath}					           % overall enhancements to math environment
+\usepackage{amsthm}                                % for theorems and other environments
+\usepackage[macros,namestyle=math]{argumentation}  % creating argumentation frameworks and some AF related macros
 
-% optional packages
-\usepackage{tikz}                           % creating graphs and other structures
-\usetikzlibrary{arrows,positioning}
-\tikzset{
-    %Define standard arrow tip
-    >=stealth',
-    %Define style for argument
-    args/.style={circle, minimum size=0.9cm,draw=black, thick,fill=white},
-}
+%%%% optional packages
+\usepackage{url}                            % for linking external urls
+%\usepackage{booktabs}                      % for nicer tables 
+%\usepackage[hidelinks]{hyperref}           % for automatic hyperlinks
+%\usepackage{tikz}                          % creating graphs and other structures
+
+
+%%%% Enviroments for theorems, propositions, definitions, ....
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{observation}{Observation}
+\newtheorem*{observation*}{Observation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 % === set information ===
 \author{Erika Mustermann}
@@ -61,30 +74,38 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\\
 At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-
-\section{Example Figures and Tables}
-
-Figure \ref{fig:af} shows an example of an abstract argumentation framework \cite{dung1995acceptability}.
+\section{Abbildungen und Tabellen}
+Abbildung \ref{fig:af} zeigt beispielhaft einen abstrakten Argumentationsgraphen \cite{dung1995acceptability}.
 
 \begin{figure}[ht]
     \centering
-    \begin{tikzpicture}[node distance=1cm]
-    	\node[args](args1){a};
-    	\node[args, below=of args1](args2){b};
-    	\node[args, right=of args1](args3){c};
-    	\node[args, right=of args2](args4){d};
-    
-        \path(args3) edge [->] (args1);
-        \path(args3) edge [->, bend right] (args4);
-        \path(args4) edge [->, bend right] (args3);
-    	\path(args4) edge [->] (args2);
-    	
-    \end{tikzpicture}
-    \caption{An abstract argumentation framework.}
+    \begin{af}
+        \argument(a1){a_1} at (0,0)
+        \argument(a2){a_2} at (0,-2)
+        \argument(a3){a_3} at (1.75,-1)
+        \argument(a4){b} at (3.75,-1)
+        \argument(a5){c} at (5.75,-1)
+
+        \attack[bend right]{a1}{a2}
+        \attack[bend right]{a2}{a3}
+        \attack[bend right]{a3}{a1}
+        \attack{a3}{a4}
+        \dualattack{a4}{a5}
+        \selfattack{a5}
+        \label{af:example}
+    \end{af}
+    \caption{Der abstrakte Argumentationsgraph \afref{af:example}.}
     \label{fig:af}
 \end{figure}
 
-\begin{table*}[h]
+\begin{definition}
+	Ein (abstrakter) Argumentationsgraph $F$ ist ein Tupel $\AF=(\arguments,\attacks)$, wobei $\arguments$ eine endliche Menge von \emph{Argumenten} ist und $\attacks\subseteq \arguments\times\arguments$ ist die \emph{Angriffsrelation}. 
+\end{definition}
+
+Für weitere Informationen zum Darstellen von Argumentationsgraphen, siehe\footnote{\tiny\ttfamily\url{https://github.com/aig-hagen/tikz_argumentation/blob/main/argumentation-doc.pdf}}.
+
+
+\begin{table*}[ht]
 \begin{center}
 \begin{tabular}{lll}
 \hline
@@ -93,8 +114,7 @@ Figure \ref{fig:af} shows an example of an abstract argumentation framework \cit
 \hline
 \end{tabular}
 \end{center}
-\caption{Table caption.} 
-\label{tab:t1}
+\caption{Eine Tabelle.} \label{tab:t1}
 \end{table*}
 
 
@@ -102,6 +122,33 @@ Figure \ref{fig:af} shows an example of an abstract argumentation framework \cit
 \subsection{Encoding Test}
 Städte, Länder, Flüsse
 
+
+\section{Propositions, Definitions, and Examples}
+For propositions and definitions please use appropriate environments.
+Here is an example for a definition.
+
+\begin{definition}
+	A deterministic finite automaton (DFA) is a tuple \( A=(Q,\Sigma,\delta,q_0,F) \) consisting of
+	\begin{itemize}
+		\item a finite set of states \( Q \),
+		\item a finite alphabet \( \Sigma \),
+		\item a transition function \( \delta:Q\times\Sigma\to Q \), 
+		\item a start state \( q_0 \in Q \), and
+		\item a set of accepting states \( F \subseteq Q \).
+	\end{itemize}
+\end{definition}
+
+Here is an example for a proposition.
+
+\begin{proposition}
+	The problem of deciding whether a Turing machine halts for an input string is undecidable.
+\end{proposition}
+
+Examples can be made with the example environment.
+
+\begin{example}
+	Content of the example environment.
+\end{example}
 
 % References
 \cleardoublepage
