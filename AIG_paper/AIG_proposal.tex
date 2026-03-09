@@ -1,4 +1,4 @@
-\documentclass[proposal,palatino]{AIGpaper}
+\documentclass[proposal,palatino,english]{AIGpaper}
 % Please read the README.md file for additional information on the parameters and overall usage of AIGpaper
 
 %%%% Package Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11,9 +11,10 @@
 
 %%%% optional packages
 \usepackage{url}                            % for linking external urls
-%\usepackage{booktabs}                      % for nicer tables 
-%\usepackage[hidelinks]{hyperref}           % for automatic hyperlinks
-%\usepackage{tikz}                          % creating graphs and other structures
+\usepackage{booktabs}                      % for nicer tables 
+\usepackage[hidelinks]{hyperref}           % for automatic hyperlinks
+\usepackage{tikz}                          % creating graphs and other structures
+\usepackage{todonotes} % for TODOs
 
 
 %%%% Enviroments for theorems, propositions, definitions, ....
@@ -37,12 +38,13 @@
 
 %%%% Abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\germanabstract{
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-}
+% use this if the document is written in german
+%\germanabstract{
+%Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+%}
 
-% use this if the document is written in english
-%\englishabstract{}
+%use this if the document is written in english
+\englishabstract{\todo[inline]{Write here a one-point summary of the topic of your thesis and what is planned.}Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.}
 
 
 \begin{document}
@@ -52,16 +54,18 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 % ===================== Beginning of the actual text section =====================
 
-\section{Lorem Ipsum}
+\section{Introduction}
+\todo[inline]{Write here an introduction for the topic of your planned thesis. Describe why is considering/investigating the topics of the thesis important.}
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
 
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
 
 
-\section{Abbildungen und Tabellen}
+\section{Background}
+\todo[inline]{In this section, describe the background for the topic of your thesis. Generally, make use of the features of documents (and LaTeX) by providing figures, tables, referring, and other abilities to structure the text.}
 Abbildung \ref{fig:af} zeigt beispielhaft einen abstrakten Argumentationsgraphen \cite{dung1995acceptability}.
 
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering
     \begin{af}
         \argument(a1){a_1} at (0,0)
@@ -89,7 +93,7 @@ Abbildung \ref{fig:af} zeigt beispielhaft einen abstrakten Argumentationsgraphen
 Für weitere Informationen zum Darstellen von Argumentationsgraphen, siehe\footnote{\tiny\ttfamily\url{https://github.com/aig-hagen/tikz_argumentation/blob/main/argumentation-doc.pdf}}.
 
 
-\begin{table*}[ht]
+\begin{table*}[t]
 \begin{center}
 \begin{tabular}{lll}
 \hline
@@ -103,11 +107,14 @@ Für weitere Informationen zum Darstellen von Argumentationsgraphen, siehe\footn
 
 
 
-\subsection{Encoding Test}
-Städte, Länder, Flüsse
+%\subsection{Encoding Test}
+%Städte, Länder, Flüsse
 
 
-\section{Propositions, Definitions, and Examples}
+\section{Problem Description}
+\todo[inline,caption={}]{Describe what the premises and problems in the thesis is dealt with. 
+	Generally this is often some lack of knowledge or lack of means that are to be resolved. For instance, non-existing insights in a certain domain or no tools/algorithms/implementations for further investigations.
+}
 For propositions and definitions please use appropriate environments.
 Here is an example for a definition.
 
@@ -133,6 +140,24 @@ Examples can be made with the example environment.
 \begin{example}
 	Content of the example environment.
 \end{example}
+
+
+\section{Goals of the thesis}
+\todo[inline,caption={}]{In this section, describe what are the plans and goals for the thesis. Contributions are existing in many forms. Generally, as time for thesis is quite short, we recommend to be conservative with settings goals.
+	Contributions which are part of \textbf{every} thesis are:
+	\begin{itemize}
+		\item Literature research and description of the background in a proper and concise way
+	\end{itemize}
+Here are some examples for other types of contributions that can be also goals of a thesis:
+\begin{itemize}
+	\item Identification and documentation of problems
+	\item Illustration of definitions, theorems and algorithms
+	\item Development and presentation of examples
+	\item Evaluations in different forms (empirical and theoretical)
+	\item Implementation
+\end{itemize}
+}
+
 
 % References
 \addreferences
