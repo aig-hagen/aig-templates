@@ -216,7 +216,7 @@
             the artificial intelligence group and endorse its public availability.
         \else
             Der Ver\"offentlichung dieser Arbeit auf der Webseite des
-            Lehrstuhls K\"unstliche Intelligenz und damit dem freien Zugang zu dieser Arbeit stimme ich ausdr\"ucklich zu.
+            Lehrstuhls f\"ur K\"unstliche Intelligenz und damit dem freien Zugang zu dieser Arbeit stimme ich ausdr\"ucklich zu.
         \fi\\[.5cm]
         \ifenglish%
             Software created for this work has been made available as open source; a corresponding link to the sources is included in this work. The same applies to any research data.
