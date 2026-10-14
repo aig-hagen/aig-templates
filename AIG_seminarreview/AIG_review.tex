@@ -4,60 +4,93 @@
 \documentclass{AIGreview}
 
 \begin{document}
-\selectlanguage{british}
 	
-	\student{Here the name of the student}
-	\papertitle{Here the title of the reviewed paper}
-	\reviewername{Here your name}
-	
+	\papertitle{Set here the title of the reviewed paper}
+	\reviewername{} % Sets the name of reviewer
+	\student{} % Sets the name of the student which authored the reviewed paper
+
 	\maketitle
 	
-	\removeme{Remove the red texts. These are only comments to explain the points. 
-		Please be always polite and constructive with your remarks.}
+	\removeme{Remove the red texts for your review final.
+		Please be always polite and constructive with your remarks and judgements.
+		Here is a list of potential aspects to consider:
+		\begin{itemize}
+			\item \textbf{Soundness} of the seminar paper:
+			\begin{itemize}
+				\item Are the definitions and theorems stated correctly?
+				\item Is the notation consistent throughout?
+				\item Are the examples correct?
+				\item Is every claim either cited or argued?
+			\end{itemize}
+			\item \textbf{Clarity} of the presentation:
+			\begin{itemize}
+				\item Are prerequisites introduced?
+				\item Is intuition provided, e.g. before formal definitions?
+				\item Is technical content provided?
+				\item Are there examples?
+				\item Is the presentation concise?
+				\item Are the figures, tables, and other visual aids helpful and well-designed? 
+				\item How are the layout and typography?
+				\item Are there  grammar or spelling mistakes?
+				\item Does the introduction state the goal and give an outline?
+				\item Are there any sections that are particularly difficult to understand?
+				\item Does the conclusion actually conclude?
+			\end{itemize}    		
+			\item \textbf{Coverage} of the seminar topic:
+			\begin{itemize}
+				\item Does the paper address the assigned topic?
+				\item Are the key results included, at a depth that suits the page limit?
+			\end{itemize}
+			\item \textbf{Literature and related work}:
+			\begin{itemize}
+				\item Are primary sources cited rather than secondary ones?
+				\item Is every borrowed idea attributed?
+				\item Are the bibliography entries complete and consistent?
+			\end{itemize}    		
+			\item \textbf{Faithfulness to the sources and own contribution}:
+			\begin{itemize}
+				\item Does the paper describe the original work accurately? 
+				\item Has the author gone beyond the assigned papers?
+				\item Has been made clear which parts are the author’s own (examples, comparisons, critique) contribution?
+			\end{itemize}
+		\end{itemize}   
+		Feel also free by extending the list by your own criteria. Your review should be at max two pages finally
+		}
 	
 	\section*{Summary}
 	\removeme{Please summarise the main content, claims, and contributions of the seminar paper in your own words. Please do not include your evaluation of the paper here.
 	}
 	
-	
-	\section*{Strengths}
-	\removeme{Summary of the main strengths of the seminar paper. Please keep it very brief and focus on the following dimensions:
-	\begin{itemize}
-		\item novelty (how novel is the seminar paper in comparison to the background literature, e.g., new examples are provided)
-		\item soundness (is the submission technically sound and self-contained)
-		\item clarity (is the submission well-organised and clearly written)
-	\end{itemize}
-	}
-	
-	\section*{Weaknesses}
-	\removeme{Summary of the main weaknesses of the seminar paper. Please keep it very brief and focus on novelty, soundness, and clarity.}
-	
 	\section*{Overall Score}
-	\removeme{Provide an overall score for the paper. Three scores are available:
+	\removeme{Provide an overall score for the seminar paper. Four scores are available:
 	\begin{itemize}
 		\item \textbf{Major Revision} (there are many aspects to be revised in this paper and these edits are substantial)
 		\item \textbf{Minor Revision} (there are only few minor aspects to be revised)
-		\item \textbf{Accept} (the paper is fine as it is, modulo some few potential improvements which could be undertaken, but are optional)
+		\item \textbf{Acceptable} (the paper is fine as it is, modulo some minor remarks and potential improvements which could be undertaken, but are optional)
+		\item \textbf{Outstanding} (the paper is exceptionally well written and there is nearly nothing to be complain about)
 	\end{itemize}
 	}
 	
 	\section*{Justification of the Overall Score}
 	
-    \removeme{Provide here a justification for your overall score. 
-    What is your impression regarding the clarity and presentation of the seminar paper.
-    \begin{itemize}
-    	\item Is the paper well-organised and clearly written? 
-    	\item Are the figures, tables, and other visual aids helpful and well-designed? 
-    	\item How is the typography of the seminar paper?
-    	\item Are there any sections that are particularly difficult to understand?
-    	\item How is the literature work of the paper?
-    \end{itemize}
+    \removeme{Provide here a justification for your overall score.     	
+    	It might be not necessary to write about all the aspects provided in the beginning. Use them as guideline to describe the strengths and weaknesses of the paper that lead to your overall score
     }
 	
-	\section*{Major comments}
-	\removeme{Provide here major remarks on how the paper could be improved, e.g., different structure of the paper or hints on how the technical content could be presented alternatively.}
+	\section*{Major remarks}
+	\removeme{Provide major remarks here on how the paper could be improved, e.g., different structure of the paper or hints on how the technical content could be presented alternatively.
+	Also provide here open questions to the author (if there are any).}
 	
-	\section*{Minor comments}
-	\removeme{Provide here minor remarks regarding language and grammar, formatting and style, missing citations and ideas for improvement of clarity which affects the text only locally.}
+	\section*{Minor remarks}
+	\removeme{Provide minor remarks here regarding language and grammar, formatting and style, missing citations and ideas for improvement of clarity which affects the text only locally. Give locations (“p. 3, l. 12” or “Sec. 2.1, Def. 3”).}
 	
+	\section*{Confidence}
+	\removeme{Undertake here a self assessment regarding your own confidence with respect to the review by provding one of the following conference levels:		
+		\begin{itemize}
+			\item \textbf{Very confident} (I have checked all points of the paper carefully, and I am certain I did not miss any important aspects)
+			\item \textbf{Confident} (I tried to check the key points in the paper; it is unlikely, though conceivable, that I missed some important aspects)
+			\item  \textbf{Weakly confident} (I was unable to carefully check some of the details, e.g., proof, contribution, examples ..., but I am able to defend my evaluation of the paper; it is quite likely that I missed some important aspects)
+			\item  \textbf{Not confident} (My evaluation feels like is an educated guess)
+		\end{itemize}
+	}
 \end{document}
